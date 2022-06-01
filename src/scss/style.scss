@@ -1,0 +1,19 @@
+@import 'reset.scss';
+@import 'variables.scss';
+@import 'fonts.scss';
+@import 'mixins.scss';
+
+// @import '../../node_modules/swiper/swiper-bundle.css';
+
+//font-size: $fs22p4 и line-height: 1.383(31px)
+body {
+	font-size: $fs22p4;
+	font-weight: $fw400;
+	line-height: 1.383;
+	font-family: $ff_Manrope;
+	color: $white;
+	background-color: $black;
+}
+
+
+@import "media.scss";
