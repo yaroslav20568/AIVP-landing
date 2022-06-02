@@ -246,11 +246,12 @@ body {
 	background-attachment: fixed;
 
 	&__wrapper {
-
+		padding: 48px
 	}
 
-	// &__container {
-	// }
+	&__info {
+		margin-bottom: 32px;
+	}
 
 	&__content {
 		background-color: $black;
@@ -258,6 +259,14 @@ body {
 	}
 
 	&__title {
+		font-size: $fs57p6;
+		line-height: 1;
+		font-weight: $fw600;
+	}
+
+	&__subtitle {
+		font-size: $fs28p8;
+		line-height: 1.354;
 	}
 }
 /* SECTION */
@@ -313,6 +322,76 @@ body {
 	}
 }
 /* STRIPES */
+
+/* ADVANTAGES */
+.advantages {
+	&__wrapper {
+	}
+	
+	&__info {
+	}
+
+	&__content {
+	}
+
+	&__title {
+		max-width: 1075px;
+		margin-bottom: 16px;
+	}
+
+	&__subtitle {
+	}
+
+	&__cards {
+		display: flex;
+		gap: 32px 24px;
+		flex-wrap: wrap;
+	}
+
+	&__card {
+		max-width: 592px;
+		width: 33.33333333333333%;
+	}
+
+	// &-card__line {
+	// 	padding-top: 41px;
+	// 	position: relative;
+		
+	// 	&:after {
+	// 		content: "";
+	// 		display: block;
+	// 		height: 1px;
+	// 		background-color: $white;
+	// 		// position: absolute;
+	// 		top: 41px;
+	// 	}
+	// }
+
+	&-card__icon {
+		margin-bottom: 16px;
+	}
+
+	&-card__title {
+		font-size: $fs38p4;
+		line-height: 1.354;
+		font-weight: $fw700;
+		margin-bottom: 8px;
+
+		&:before {
+			content: "";
+			display: block;
+			height: 1px;
+			background-color: $white;
+			margin-bottom: 16px;
+		}
+	}
+
+	&-card__text {
+		font-size: 22.4px;
+	}
+}
+/* ADVANTAGES */
+
 
 
 @import "media.scss";
