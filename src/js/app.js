@@ -7,8 +7,10 @@ window.addEventListener('DOMContentLoaded', () => {
 	burger.addEventListener('click', () => {
 		if(!nav.classList.contains('nav--active')) {
 			nav.classList.add('nav--active');
+			burger.classList.add('burger--active');
 		} else {
 			nav.classList.remove('nav--active');
+			burger.classList.remove('burger--active');
 		}
 	});
 });
