@@ -137,14 +137,20 @@
 
 		&__subtitle {
 			font-size: 18px;
-			line-height: 25px;
+			line-height: 1.388;
 			font-weight: 700;
 		}
 
 		&__text {
 			font-size: 14px;
-			line-height: 19px;
 			font-weight: 400;
+		}
+	}
+
+	.architecture-step {
+		&__text {
+			font-size: 14px;
+			line-height: 1.357;
 		}
 	}
 }
@@ -413,6 +419,17 @@
 
 		&__title {
 			font-size: 64px;
+		}
+	}
+
+	.architecture {
+		&__steps {
+			display: block;
+		}
+	}
+
+	.architecture-step {
+		&__text {
 		}
 	}
 }

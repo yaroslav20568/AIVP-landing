@@ -421,6 +421,7 @@ body {
 /* PLATFORM-COMPONENTS */
 .platform-components {
     &__wrapper {
+		padding: 36px;
     }
     &__content {
     }
@@ -506,6 +507,51 @@ body {
 .title--blue {
 	color: $blue_dark;
 }
-/* TITLE */	
+/* TITLE */
+
+/* ARCHITECTURE */
+.architecture {
+	&__wrapper {
+	}
+
+	&__scheme {
+		margin-bottom: 32px;
+	}
+
+	&__steps {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -18px;
+	}
+
+	&__step {
+		width: 33%;
+		padding: 0 18px;
+	}
+
+	&__img {
+		max-width: 100%;
+	}
+}
+
+.architecture-step {
+	&__text {
+		font-size: 22.4px;
+		line-height: 31px;
+		font-weight: 400;
+
+		&:before {
+			content: "";
+			display: block;
+			height: 1px;
+			background-color: $white;
+			margin-bottom: 16px;
+			// position: absolute;
+			// top: 0;
+		}
+	}
+}
+/* ARCHITECTURE */
+
 
 @import "media.scss";
