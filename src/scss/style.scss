@@ -189,6 +189,13 @@ body {
 	}
 }
 
+.wrapper {
+	&-btn {
+		text-align: center;
+		margin-top: 32px;
+	}
+}
+
 .btn {
 	display: inline-block;
 	padding: 16px 36px;
@@ -574,11 +581,6 @@ body {
 
 	}
 
-	&__wrapper-btn {
-		text-align: center;
-		margin-top: 32px;
-	}
-
 	&__btn {
 
 	}
@@ -630,5 +632,73 @@ body {
 	}
 }
 /* COOPERATION */
+
+/* FEEDBACK */
+.feedback {
+	&__wrapper {
+		padding: 64px 48px;
+	}
+	&__form {
+		
+	}
+	&__wrapper-btn {
+
+	}
+	&-form {
+		&__row {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 26px;
+			// flex-wrap: wrap;
+			// gap: 26px 0;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&__row:last-child &__input {
+			width: 100%;
+			max-width: none;
+			margin-right: 0;
+		}
+
+		&__input {
+			max-width: 900px;
+			width: 50%;
+			height: 63px;
+			padding: 16px 0;
+			background: none;
+			border-bottom: 1px solid $white;
+			color: $white;
+			font-size: 22.4px;
+			line-height: 1.383;
+
+			&:nth-child(1), &:nth-child(3) {
+				margin-right: 24px;
+			}
+
+			&::placeholder {
+				color: $white;
+			}
+		}
+	}
+	&__btn {
+
+	}
+}
+/* FEEDBACK */
+
+/* FEEDBACK */
+.footer {
+}
+.footer__wrapper {
+	padding: 36px;
+}
+.footer__text {
+	color: $grey_dark2;
+}
+/* FEEDBACK */
+
 
 @import "media.scss";

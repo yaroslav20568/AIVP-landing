@@ -166,6 +166,22 @@
 			}
 		}
 	}
+
+	.feedback {
+		&-form {
+			&__input {
+				font-size: 14px;
+				line-height: 1.357;
+			}
+		}
+	}
+
+	.footer {
+		&__text {
+			font-size: 14px;
+			line-height: 1.357;
+		}
+	}
 }
 @media(max-width:1080px) {
 	.information {
@@ -420,6 +436,30 @@
 		&-item {
 			&__title {
 				margin-bottom: 8px;
+			}
+		}
+	}
+
+	.feedback {
+		&-form {
+			&__row {
+				display: block;
+				margin-bottom: 0;
+			}
+
+			&__input {
+				width: 100%;
+				font-size: 14px;
+				line-height: 1.357;
+				margin-bottom: 26px;
+
+				&:nth-child(1), &:nth-child(3) {
+					margin-right: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
 			}
 		}
 	}
