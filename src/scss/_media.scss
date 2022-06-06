@@ -153,6 +153,19 @@
 			line-height: 1.357;
 		}
 	}
+
+	.cooperation {
+		&-item {
+			&__title {
+				font-size: 36px;
+			}
+	
+			&__text {
+				font-size: 14px;
+				line-height: 1.357;
+			}
+		}
+	}
 }
 @media(max-width:1080px) {
 	.information {
@@ -395,6 +408,18 @@
 
 			&:last-child {
 				margin-bottom: 0;
+			}
+		}
+	}
+
+	.cooperation {
+		&__item {
+			display: block;
+		}
+
+		&-item {
+			&__title {
+				margin-bottom: 8px;
 			}
 		}
 	}
