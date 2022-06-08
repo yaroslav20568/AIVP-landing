@@ -25,6 +25,16 @@
 			font-size: 145px;
 		}
 	}
+
+	.demo {
+		&__left {
+			padding: 123px 87px;
+		}
+
+		&__right {
+			padding: 190px 48px;
+		}
+	}
 }
 
 @media(max-width:1500px) {
@@ -80,6 +90,16 @@
 	.advantages-card {
 		&__title {
 			font-size: 34px;
+		}
+	}
+
+	.demo {
+		&__left {
+			padding: 105px 87px;
+		}
+
+		&__right {
+			padding: 123px 48px;
 		}
 	}
 }
@@ -270,6 +290,26 @@
 		}
 	}
 
+	.demo {
+		&__left {
+			padding: 76px 87px;
+		}
+
+		&__right {
+			padding: 108px 48px;
+		}
+
+		&__img {
+			width: 425px;
+			height: 295px;
+		}
+
+		&__text {
+			font-size: 24px;
+			line-height: 1.375;
+		}
+	}
+
 	.information {
 		&__item {
 			padding: 11px 0;
@@ -426,6 +466,16 @@
 		}
 	}
 
+	.demo {
+		&__left {
+			padding: 76px 43px;
+		}
+
+		&__title {
+			font-size: 96px;
+		}
+	}
+
 	.information {
 		&__item {
 			display: flex;
@@ -475,6 +525,16 @@
 	.advantages-card {
 		&__title {
 			font-size: 20px;
+		}
+	}
+
+	.demo {
+		&__left {
+			padding: 76px 34px;
+		}
+
+		&__right {
+			padding: 108px 40px;
 		}
 	}
 
@@ -682,6 +742,16 @@
 		}
 	}
 
+	.demo {
+		&__left {
+			padding: 114px 34px;
+		}
+
+		&__right {
+			padding: 75px 48px;
+		}
+	}
+
 	.information {
 		&-item__number-data {
 			font-size: 74px;
@@ -714,6 +784,18 @@
 		&__img {
 			right: auto;
 			left: 127px;
+		}
+	}
+}
+
+@media(max-width:650px) {
+	.demo {
+		&__left {
+			padding: 94px 20px;;
+		}
+		
+		&__right {
+			padding: 55px 28px;
 		}
 	}
 }
@@ -792,6 +874,25 @@
 		// 	font-size: 14px;
 		// 	line-height: 1.357;
 		// }
+	}
+
+	.demo {
+		&__content {
+			flex-direction: column;
+			text-align: center;
+		}
+
+		&__left, &__right {
+			width: 100%;
+		}
+
+		&__left {
+			padding: 48px 20px;
+		}
+		
+		&__right {
+			padding: 48px 28px;
+		}
 	}
 
 	.information {
@@ -974,6 +1075,12 @@
 		}
 	}
 
+	.demo {
+		&__left {
+			padding: 24px 28px;
+		}
+	}
+
 	.component-item {
 		&__img {
 			left: auto;
@@ -1007,6 +1114,28 @@
 
 	.architecture-step {
 		&__text {
+		}
+	}
+}
+
+@media(max-width:360px) {
+	.demo {
+		&__left {
+			padding: 24px 28px;
+		}
+
+		&__right {
+			padding: 48px;
+			text-align: left;
+		}
+
+		&__title {
+			font-size: 64px;
+		}
+
+		&__img {
+			width: 172px;
+			height: 120px;
 		}
 	}
 }

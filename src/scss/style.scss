@@ -506,10 +506,12 @@ body {
 		}
 
 		&:last-child {
+			margin-bottom: 32px;
+
 			&:after {
 				width: 363px;
 				height: 363px;
-				right: 120px;
+				right: 248px;
 				transform: translateY(-50%) rotate(336deg);
 			}
 		}
@@ -587,6 +589,54 @@ body {
 	}
 }
 /* ADVANTAGES-OPERATION */
+
+/* DEMO */
+.demo {
+	padding-top: 1px;
+
+	&__wrapper {
+		background-color: $black;
+	}
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__left, &__right {
+		width: 50%;
+	}
+	&__left {
+		padding: 123px 140px;
+		position: relative;
+	}
+	&__right {
+		padding: 224px 48px;
+	}
+	&__title {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate3d(-50%, -50%, 0);
+		font-weight: 700;
+		font-size: 128px;
+		line-height: 1;
+		color: $cyan;
+	}
+	&__img {
+		width: 680px;
+		height: 472px;
+		max-width: 100%;
+	}
+	&__text {
+		font-size: 38.4px;
+		line-height: 1.354;
+		margin-bottom: 48px;
+	}
+	&__btn {
+
+	}
+}
+/* DEMO */
 
 /* INFORMATION */
 .information {
