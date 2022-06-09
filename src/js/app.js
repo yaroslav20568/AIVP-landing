@@ -5,6 +5,16 @@ window.addEventListener('DOMContentLoaded', () => {
 	// 	document.documentElement.scrollTop = 0;
 	// });
 
+	/* SCROLL TOP TOP */
+	const btnToTop = document.querySelector('.btn-to-top');
+
+	btnToTop.addEventListener('click', () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth"
+		});
+	});
+	/* SCROLL TOP TOP */
 
 	/* COOKIES */
 	function getCookie(name) {

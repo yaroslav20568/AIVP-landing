@@ -1156,6 +1156,55 @@ body {
     opacity: 1;
 	transition: 0.3s linear opacity, 0.3s linear visibility;
 }
+
+.btn-to-top {
+	position: fixed;
+	z-index: 100;
+	right: 16px;
+	bottom: 18px;
+	width: 42px;
+	height: 42px;
+	background-color: rgba(33, 36, 39, 0.2);
+	backdrop-filter: blur(16px);
+	cursor: pointer;
+	transition: .3s linear background-color;
+
+	&:hover {
+		background-color: rgba(0, 0, 0, .4);
+	}
+
+	@keyframes moveArrow {
+		0% {     
+			bottom: 5px
+		}
+
+		100% {
+			top: 30%
+		}
+	}
+
+	&:before, &:after {
+		content: "";
+		display: block;
+		width: 3px;
+		height: 12px;
+		background-color: $white;
+		position: absolute;
+		top: 60%;
+		border-radius: 5px;
+		animation: moveArrow 1s linear infinite;
+	}
+
+	&:before {
+		left: 16px;
+		transform: translateY(-40%) rotate(45deg);
+	}
+
+	&:after {
+		right: 16px;
+		transform: translateY(-40%) rotate(135deg);
+	}
+}
 /* MODALS */
 
 
