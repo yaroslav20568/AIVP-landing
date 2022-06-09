@@ -5,6 +5,30 @@ window.addEventListener('DOMContentLoaded', () => {
 	// 	document.documentElement.scrollTop = 0;
 	// });
 
+
+	/* COOKIES */
+	function getCookie(name) {
+		let matches = document.cookie.match(new RegExp(
+			"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+		));
+		
+		return matches ? decodeURIComponent(matches[1]) : undefined;
+	}
+
+	if(!getCookie('site')) {
+		setTimeout(() => {
+			document.querySelector('.modal-cookies').classList.add('modal-cookies--active');
+		}, 1000);
+	}
+
+	const modalCookiesBtn = document.querySelector('.modal-cookies__btn');
+	
+	modalCookiesBtn.addEventListener('click', () => {
+		document.cookie = "site=AIVP; max-age=2592000";
+		document.querySelector('.modal-cookies').classList.remove('modal-cookies--active');
+	});
+	/* COOKIES */
+
 	/* BURGER */
 	const burger = document.querySelector('.burger-menu');
 	const nav = document.querySelector('.nav');

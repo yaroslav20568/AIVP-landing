@@ -1115,6 +1115,47 @@ body {
 		}
 	}
 }
+
+.modal-cookies {
+	position: fixed;
+	z-index: 100;
+	background-color: $violet_dark;
+	padding: 8px 16px;
+	max-width: 360px;
+	bottom: 104px;
+	right: 60px;
+	border-radius: 8px;
+	visibility: hidden;
+    opacity: 0;
+	transition: 0.3s linear opacity, 0.3s linear visibility;
+
+	&__info {
+		text-align: center;
+	}
+
+	&__text {
+		font-size: 14px;
+		line-height: 19px;
+		margin-bottom: 16px;
+		text-align: left;
+		
+		span {
+			color: $cyan;
+		}
+	}
+
+	&__btn {
+		cursor: pointer;
+		font-size: 16px;
+		line-height: 1.187;
+	}
+}
+
+.modal-cookies--active {
+	visibility: visible;
+    opacity: 1;
+	transition: 0.3s linear opacity, 0.3s linear visibility;
+}
 /* MODALS */
 
 
