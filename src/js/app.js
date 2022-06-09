@@ -43,13 +43,27 @@ window.addEventListener('DOMContentLoaded', () => {
 	const burger = document.querySelector('.burger-menu');
 	const nav = document.querySelector('.nav');
 
+	const burgerOpen = () => {
+		nav.classList.add('nav--active');
+		burger.classList.add('burger--active');
+		document.body.style.overflow = 'hidden';
+	};
+
+	const burgerClose = () => {
+		nav.classList.remove('nav--active');
+		burger.classList.remove('burger--active');
+		document.body.style.overflow = 'auto';
+	};
+
+	window.addEventListener('resize', () => {
+		burgerClose();
+	});
+
 	burger.addEventListener('click', () => {
 		if(!nav.classList.contains('nav--active')) {
-			nav.classList.add('nav--active');
-			burger.classList.add('burger--active');
+			burgerOpen();
 		} else {
-			nav.classList.remove('nav--active');
-			burger.classList.remove('burger--active');
+			burgerClose();
 		}
 	});
 	/* BURGER */
@@ -75,8 +89,10 @@ window.addEventListener('DOMContentLoaded', () => {
 	const partnerBtns = document.querySelectorAll('.btn--partner');
 
 	const outsideClickModal = (modal) => {
-		modal.firstElementChild.addEventListener('click', () => {
-			closeModal(modal);
+		modal.addEventListener('click', (e) => {
+			if(e.target.parentElement === modal) {
+				closeModal(modal);
+			}
 		});
 	};
 
@@ -128,6 +144,8 @@ window.addEventListener('DOMContentLoaded', () => {
 				top: scrollToPosition,
 				behavior: "smooth"
 			});
+
+			burgerClose();
 		});
 	});
 	/* ANCHORS */

@@ -345,6 +345,12 @@
 		}
 	}
 
+	.architecture {
+		&__top {
+			padding: 36px 36px 16px;
+		}
+	}
+
 	.architecture-step {
 		&__text {
 			font-size: 14px;
@@ -382,7 +388,7 @@
 	}
 
 	.modal-cookies {
-		bottom: 98px;
+		// bottom: 98px;
 		right: 70px;
 	}
 }
@@ -415,10 +421,6 @@
 }
 
 @media(max-width:1024px) {
-	.header__btn {
-		display: none;
-	}
-
 	.nav {
 		&__item {
 			margin-right: 28px;
@@ -488,7 +490,7 @@
 
 		&-item__number-data {
 			margin-bottom: 0px;
-			font-size: 90px;
+			font-size: 96px;
 		}
 	}
 
@@ -513,6 +515,10 @@
 }
 
 @media(max-width:992px) {
+	.header__btn {
+		display: none;
+	}
+
 	.media-service {
 		&__info {
 			padding: 92px 0 0 25px;
@@ -611,7 +617,8 @@
 		display: none;
 
 		&--active &__item {
-			margin-bottom: 8px;
+			padding: 5px 0;
+			margin-bottom: 10px;
 		}
 	}
 
@@ -684,62 +691,62 @@
 		}
 	}
 
-	.advantages-operation {
-		// advantages-operation__item:first-child:after
-		&__item {
-			flex-direction: column;
-			align-items: flex-start;
+	// .advantages-operation {
+	// 	// advantages-operation__item:first-child:after
+	// 	&__item {
+	// 		flex-direction: column;
+	// 		align-items: flex-start;
 
-			&:first-child {
-				&:after {
-					transform: none;
-					top: auto;
-					right: 0;
-					bottom: 20px;
-					left: 10px;
-				}
+	// 		&:first-child {
+	// 			&:after {
+	// 				transform: none;
+	// 				top: auto;
+	// 				right: 0;
+	// 				bottom: 20px;
+	// 				left: 10px;
+	// 			}
 
-				.advantages-operation-item__picture {
-					// padding: 10px 20px;
-					padding: 0px 20px;
-				}
-			}
+	// 			.advantages-operation-item__picture {
+	// 				// padding: 10px 20px;
+	// 				padding: 0px 20px;
+	// 			}
+	// 		}
 	
-			&:nth-child(2) {
-				&:after {
-					transform: none;
-					top: auto;
-					right: 0;
-					bottom: 54px;
-					left: 158px;
-					transform: rotate(-34deg);
-				}
+	// 		&:nth-child(2) {
+	// 			&:after {
+	// 				transform: none;
+	// 				top: auto;
+	// 				right: 0;
+	// 				bottom: 54px;
+	// 				left: 158px;
+	// 				transform: rotate(-34deg);
+	// 			}
 
-				.advantages-operation-item__info {
-					order: 1;
-				}
+	// 			.advantages-operation-item__info {
+	// 				order: 1;
+	// 			}
 
-				.advantages-operation-item__picture {
-					order: 2;
-					padding: 25px 20px;
-				}
-			}
+	// 			.advantages-operation-item__picture {
+	// 				order: 2;
+	// 				padding: 25px 20px;
+	// 			}
+	// 		}
 	
-			&:last-child {
+	// 		&:last-child {
 
-				&:after {
-					top: auto;
-					right: 0;
-					bottom: 78px;
-					left: 58px;
-					transform: rotate(336deg);
-				}
-				.advantages-operation-item__picture {
-					padding: 20px;
-				}
-			}
-		}
-	}
+	// 			&:after {
+	// 				top: auto;
+	// 				right: 0;
+	// 				bottom: 78px;
+	// 				left: 58px;
+	// 				transform: rotate(336deg);
+	// 			}
+	// 			.advantages-operation-item__picture {
+	// 				padding: 20px;
+	// 			}
+	// 		}
+	// 	}
+	// }
 
 	.demo {
 		&__left {
@@ -753,7 +760,7 @@
 
 	.information {
 		&-item__number-data {
-			font-size: 74px;
+			font-size: 96px;
 		}
 	}
 
@@ -808,6 +815,64 @@
 		margin: 0 30px;
 		right: 0px;
 		bottom: 50px;
+	}
+}
+
+@media(max-width: 700px) {
+	.advantages-operation {
+		&__item {
+			flex-direction: column;
+			align-items: flex-start;
+
+			&:first-child {
+				&:after {
+					transform: none;
+					top: auto;
+					right: 0;
+					bottom: 20px;
+					left: 10px;
+				}
+
+				.advantages-operation-item__picture {
+					// padding: 10px 20px;
+					padding: 0px 20px;
+				}
+			}
+	
+			&:nth-child(2) {
+				&:after {
+					transform: none;
+					top: auto;
+					right: 0;
+					bottom: 54px;
+					left: 158px;
+					transform: rotate(-34deg);
+				}
+
+				.advantages-operation-item__info {
+					order: 1;
+				}
+
+				.advantages-operation-item__picture {
+					order: 2;
+					padding: 25px 20px;
+				}
+			}
+	
+			&:last-child {
+
+				&:after {
+					top: auto;
+					right: 0;
+					bottom: 78px;
+					left: 58px;
+					transform: rotate(336deg);
+				}
+				.advantages-operation-item__picture {
+					padding: 20px;
+				}
+			}
+		}
 	}
 }
 
@@ -979,10 +1044,6 @@
 
 				&:nth-child(1), &:nth-child(3) {
 					margin-right: 0;
-				}
-
-				&:last-child {
-					margin-bottom: 0;
 				}
 			}
 		}
@@ -1186,6 +1247,16 @@
 			width: 172px;
 			height: 120px;
 		}
+	}
+
+	.architecture {
+		&__top {
+			padding: 36px 25px 16px;
+		}
+	}
+
+	.btn-to-top {
+		display: none;
 	}
 }
 

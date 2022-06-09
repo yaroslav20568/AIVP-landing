@@ -269,36 +269,40 @@
 	</section>
 
 	<section class="architecture section">
-		<div class="architecture__wrapper section__wrapper">
-			<div class="architecture__scheme">
-				<picture>
-					<source srcset="@img/architecture-bg360.svg" media="(max-width: 576px)">
-					<source srcset="@img/architecture-bg1920.svg">
-					<img srcset="@img/architecture-bg1920.svg" alt="My default image" class="architecture__img">
-				</picture>
-				<!-- <img src="@img/architecture-bg.svg" alt="" class="architecture__img"> -->
-			</div>
-
-			<div class="architecture__steps">
-				<div class="architecture__step">
-					<div class="architecture-step__text">
-						Компоненты AIVP размещаются в одном или нескольких центрах обработки данных оператора и при необходимости могут быть вынесены на площадку заказчика оператора
-					</div>
-				</div>
-
-				<div class="architecture__step">
-					<div class="architecture-step__text">
-						Камеры и другие устройства безопасности подключаются через публичные или частные сети, принадлежащие оператору.
-					</div>
-				</div>
-
-				<div class="architecture__step">
-					<div class="architecture-step__text">
-						AIVP Server может быть вынесен на удаленную площадку заказчика оператора для организации локального просмотра и хранения данных
-					</div>
+		<!-- <div class="architecture__wrapper section__wrapper"> -->
+			<div class="architecture__top">
+				<div class="architecture__scheme">
+					<picture>
+						<source srcset="@img/architecture-bg360.svg" media="(max-width: 576px)">
+						<source srcset="@img/architecture-bg1920.svg">
+						<img srcset="@img/architecture-bg1920.svg" alt="My default image" class="architecture__img">
+					</picture>
+					<!-- <img src="@img/architecture-bg.svg" alt="" class="architecture__img"> -->
 				</div>
 			</div>
-		</div>
+
+			<div class="architecture__bottom">
+				<div class="architecture__steps">
+					<div class="architecture__step">
+						<div class="architecture-step__text">
+							Компоненты AIVP размещаются в одном или нескольких центрах обработки данных оператора и при необходимости могут быть вынесены на площадку заказчика оператора
+						</div>
+					</div>
+	
+					<div class="architecture__step">
+						<div class="architecture-step__text">
+							Камеры и другие устройства безопасности подключаются через публичные или частные сети, принадлежащие оператору.
+						</div>
+					</div>
+	
+					<div class="architecture__step">
+						<div class="architecture-step__text">
+							AIVP Server может быть вынесен на удаленную площадку заказчика оператора для организации локального просмотра и хранения данных
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- </div> -->
 	</section>
 
 	<section class="cooperation section">
@@ -365,11 +369,11 @@
 				<div class="feedback-form__row">
 					<input type="text" placeholder="Ваше сообщение" class="feedback-form__input">
 				</div>
+
+				<div class="feedback__wrapper-btn wrapper-btn">
+					<input type="submit" class="feedback__btn btn" value="Обсудить возможности платформы" />
+				</div>
 			</form>
-	
-			<div class="feedback__wrapper-btn wrapper-btn">
-				<button class="feedback__btn btn">Обсудить возможности платформы </button>
-			</div>
 		</div>
 
 		<div class="stripes-top">
