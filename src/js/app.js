@@ -1,6 +1,11 @@
 import { hello } from './functions/hello.js';
 
 window.addEventListener('DOMContentLoaded', () => {
+	// window.addEventListener('unload', () => {
+	// 	document.documentElement.scrollTop = 0;
+	// });
+
+	/* BURGER */
 	const burger = document.querySelector('.burger-menu');
 	const nav = document.querySelector('.nav');
 
@@ -13,24 +18,23 @@ window.addEventListener('DOMContentLoaded', () => {
 			burger.classList.remove('burger--active');
 		}
 	});
+	/* BURGER */
 
+	/* MODALS */
 	const contactModal = document.querySelector('.contact-modal');
 	const partnerModal = document.querySelector('.partner-modal');
 
-	const headerBtn = document.querySelector('.header__btn');
-	const cooperationBtn = document.querySelector('.cooperation__btn');
-
-
 	const openModal = (modal) => {
-		modal.classList.add('modal--active')
+		document.body.style.overflow = 'hidden';
+		modal.classList.add('modal--active');
 
 		outsideClickModal(modal);
-
 		escEnterModal(modal);
 	};
 
 	const closeModal = (modal) => {
-		modal.classList.remove('modal--active')
+		document.body.style.overflow = 'auto';
+		modal.classList.remove('modal--active');
 	};
 
 	const contactBtns = document.querySelectorAll('.btn--contact');
@@ -42,24 +46,24 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	};
 
-	// const escEnterModal = (modal) => {
-		// document.addEventListener('keyup', function(e){
-		// 	if(e.keyCode === 27) {
-		// 		closeModal(modal);
-		// 	}
-		// });
-	// };
+	const escEnterModal = (modal) => {
+		document.addEventListener('keyup', function(e){
+			if(e.keyCode === 27) {
+				closeModal(modal);
+			}
+		});
+	};
 
 	contactBtns.forEach(contactBtn => {
 		contactBtn.addEventListener('click', () => {
 			openModal(contactModal);
-		})
+		});
 	});
 
 	partnerBtns.forEach(partnerBtn => {
 		partnerBtn.addEventListener('click', () => {
 			openModal(partnerModal);
-		})
+		});
 	});
 
 	
@@ -67,7 +71,30 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	modalCloseBtns.forEach(modalCloseBtn => {
 		modalCloseBtn.addEventListener('click', () => {
+			document.body.style.overflow = 'auto';
 			modalCloseBtn.parentElement.parentElement.parentElement.classList.remove('modal--active');
 		});
-	})
+	});
+	/* MODALS */
+
+	/* ANCHORS */
+	const anchors = document.querySelectorAll('#anchor');
+	const anchorsContent = document.querySelectorAll('#anchor-content');
+
+	anchors.forEach((anchor, i) => {
+		anchor.addEventListener('click', (e) => {
+			e.preventDefault();
+
+			const headerStyle = window.getComputedStyle(document.querySelector('.header'));
+			const headerHeight = headerStyle.height.replace('px', '');
+
+			const scrollToPosition = anchorsContent[i].getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight;
+
+			window.scrollTo({
+				top: scrollToPosition,
+				behavior: "smooth"
+			});
+		});
+	});
+	/* ANCHORS */
 });
