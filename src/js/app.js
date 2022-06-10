@@ -146,6 +146,8 @@ window.addEventListener('DOMContentLoaded', () => {
 			});
 
 			burgerClose();
+
+			history.pushState(null, null, anchor.href);
 		});
 	});
 	/* ANCHORS */
