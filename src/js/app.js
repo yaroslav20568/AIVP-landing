@@ -1,4 +1,4 @@
-import { hello } from './functions/hello.js';
+import { animations } from './functions/animations.js';
 
 window.addEventListener('DOMContentLoaded', () => {
 	// window.addEventListener('unload', () => {
@@ -149,4 +149,6 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 	/* ANCHORS */
+
+	animations();
 });
