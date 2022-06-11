@@ -1,4 +1,21 @@
 export const animations = () => {
+	/* BURGER */
+	// let tlBurger = gsap.timeline({ paused: true });
+	// tlBurger.to("nav--active", {duration: 1, opacity: 0});
+	// tlBurger.to('.nav__item', {duration: .5, opacity: 0, x: -10, stagger: .3});
+
+	// const burger = document.querySelector('.burger-menu');
+	// const nav = document.querySelector('.nav');
+
+	// const reverseTLBurger = (animation) => {
+	// 	animation.reversed() ? animation.play() : animation.progress(1).reverse();
+	// };
+
+	// burger.addEventListener('click', () => {
+	// 	reverseTLBurger(tlBurger);
+	// });
+	/* BURGER */
+
 	/* INTRO */
 	let tlIntro = gsap.timeline({});
 
@@ -296,7 +313,7 @@ export const animations = () => {
 		scrollTrigger: {
 			trigger: '.cooperation__wrapper-btn ',
 			// scrub: true,
-			start: "top 70%",
+			start: "top 90%",
 			end: "top 0%",
 			//markers: true
 		},
@@ -341,7 +358,7 @@ export const animations = () => {
 		scrollTrigger: {
 			trigger: '.feedback__wrapper-btn ',
 			// scrub: true,
-			start: "top 70%",
+			start: "top 90%",
 			end: "top 0%",
 			//markers: true
 		},

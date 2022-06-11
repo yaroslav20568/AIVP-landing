@@ -969,6 +969,37 @@ body {
 }
 /* COOPERATION */
 
+/* ALERT */
+.alert {
+	&__text {
+		padding-left: 64px;
+		position: relative;
+		font-size: 18px;
+		line-height: 1.388;
+		font-weight: 700;
+		display: flex;
+
+		span {
+			&:first-child {
+				margin-right: 6px;
+			}
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			width: 33px;
+			height: 33px;
+			background: url('@img/ok.svg');
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}
+/* ALERT */
+
 /* FEEDBACK */
 .feedback {
 	&__wrapper {
@@ -977,10 +1008,6 @@ body {
 
 	&__form {
 		
-	}
-
-	&__wrapper-btn {
-
 	}
 
 	&-form {
@@ -1015,17 +1042,49 @@ body {
 				color: $white;
 			}
 		}
-	}
 
-	&__btn {
-		background: none;
-		cursor: pointer;
-		white-space: normal;
+		&__error-message {
+			text-align: center;
+		}
 
-		&:hover {
-			background: $white;
+		&__wrapper-btn {
+
+		}
+
+		&__btn {
+			background: none;
+			cursor: pointer;
+			white-space: normal;
+	
+			&:hover {
+				background: $white;
+			}
 		}
 	}
+
+	&__alert {
+		max-width: 1151px;
+		margin: 0 auto;
+		padding: 64px 0;
+		display: none;
+	}
+
+	&-alert {
+		&__text {
+			font-size: 28.8px;
+			line-height: 1.354;
+		}
+	}
+
+	// &__btn {
+	// 	background: none;
+	// 	cursor: pointer;
+	// 	white-space: normal;
+
+	// 	&:hover {
+	// 		background: $white;
+	// 	}
+	// }
 }
 /* FEEDBACK */
 
@@ -1160,6 +1219,25 @@ body {
 		color: $grey_light;
 		margin-top: 16px;
 	}
+
+	&__alert {
+		max-width: 250px;
+		position: fixed;
+		z-index: 300;
+		top: 70px;
+		right: 16px;
+		padding: 10px;
+		background-color: #350268;
+		display: none;
+	}
+
+	&-alert {
+		&__text {
+			flex-direction: column;
+			font-size: 14px;
+			line-height: 1.357;
+		}
+	}
 }
 
 .form {
@@ -1171,6 +1249,10 @@ body {
 
 		&:first-child {
 			margin-top: 0;
+		}
+
+		&::placeholder {
+			color: $black;
 		}
 	}
 	
@@ -1292,6 +1374,8 @@ body {
 		transform: translateY(-50%) rotate(135deg);
 	}
 }
+
+
 /* MODALS */
 
 
