@@ -72,11 +72,13 @@ window.addEventListener('DOMContentLoaded', () => {
 	const contactModal = document.querySelector('.contact-modal');
 	const partnerModal = document.querySelector('.partner-modal');
 
-	const resetInputs = (inputs, message) => {
+	const resetInputs = (inputs, message, inputMessages) => {
 		console.log(message)
-		inputs.forEach(input => {
+		inputs.forEach((input, i) => {
 			input.value = '';
 			input.placeholder = input.placeholder.replace('*', '');
+
+			inputMessages[i].textContent = '';
 		});
 
 		// message.textContent = 'Все поля должны быть заполнены';
@@ -94,7 +96,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	const closeModal = (modal) => {
 		const inputs = document.querySelectorAll(`.${modal.classList[0]} input[type="text"]`);
 		const message = document.querySelector(`.${modal.classList[0]}__error-message`);
-		resetInputs(inputs, message);
+		const inputMessages = document.querySelectorAll(`.${modal.classList[0]}__error-input`);
+		resetInputs(inputs, message, inputMessages);
 
 		document.body.style.overflow = 'auto';
 		modal.classList.remove('modal--active');
@@ -168,22 +171,110 @@ window.addEventListener('DOMContentLoaded', () => {
 	/* ANCHORS */
 
 	/* VALIDATION */
-	const valdateForm = (modalName, formName, btnName, messageName, alertName) => {
+	// let i = 0;
+	let inputsIsValidate = [];
+
+	const checkInput = (input) => {
+		// const fioReg = /^[a-zA-Zа-яА-ЯёЁ]*([-][a-zA-Zа-яА-ЯёЁ]*)?\s[a-zA-Zа-яА-ЯёЁ]*\s[a-zA-Zа-яА-ЯёЁ]*$/;
+		const fioReg = /^[a-zA-Zа-яА-ЯёЁ]*([-][a-zA-Zа-яА-ЯёЁ]*)?\s[a-zA-Zа-яА-ЯёЁ]*\s[a-zA-Zа-яА-ЯёЁ]*$/;
+		const companyReg = /^[a-zA-Zа-яА-ЯёЁ0-9]+$/;
+		const emailReg = /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i;
+		const phoneReg = /^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/;
+		const addinfoReg = /^[a-zA-Zа-яА-ЯёЁ0-9]+$/;
+		let bool;
+
+		if(fioReg.test(input.value) && input.name === 'fio') {
+			if((input.value.length >= 6 && input.value.length <= 30)) {
+				bool =  true;
+				input.nextElementSibling.textContent = '';
+			} else {
+				input.nextElementSibling.textContent = 'Ввод от 6 до 30 символов';
+			}
+		} else if(companyReg.test(input.value) && input.name === 'company') {
+			if((input.value.length >= 4 && input.value.length <= 20)) {
+				bool =  true;
+				input.nextElementSibling.textContent = '';
+			} else {
+				input.nextElementSibling.textContent = 'Ввод от 4 до 20 символов';
+			}
+		} else if(emailReg.test(input.value) && input.name === 'email') {
+			bool =  true;
+			input.nextElementSibling.textContent = '';
+		} else if(phoneReg.test(input.value) && input.name === 'phone') {
+			bool =  true;
+			input.nextElementSibling.textContent = '';
+		} else if(addinfoReg.test(input.value) && input.name === 'addinfo') {
+			if((input.value.length >= 4 && input.value.length <= 30)) {
+				bool =  true;
+				input.nextElementSibling.textContent = '';
+			} else {
+				input.nextElementSibling.textContent = 'Ввод от 4 до 30 символов';
+			}
+		} else {
+			bool = false;
+			input.nextElementSibling.textContent = 'Некоректный ввод';
+			
+			if(input.name === 'fio') {
+				input.nextElementSibling.textContent = 'Формат: Щука Игорь Юрьевич';
+			} else if(input.name === 'company') {
+				input.nextElementSibling.textContent = 'Формат: Интексофт';
+			} else if(input.name === 'email') {
+				input.nextElementSibling.textContent = 'Формат: ravlushevich.iarek@mail.ru';
+			} else if(input.name === 'phone') {
+				input.nextElementSibling.textContent = 'Формат: +375299865881';
+			} else if(input.name === 'addinfo') {
+				input.nextElementSibling.textContent = '123';
+			}
+		}
+		// console.log(i);
+		// return bool;
+		return {'bool': bool, 'inputname': input.name};
+	};
+
+	const validateForm = (modalName, formName, btnName, messageName, alertName, inputMessageName) => {
 		const inputs = document.querySelectorAll(`${modalName ? modalName : formName} input[type="text"]`);
 		const modal = modalName && document.querySelector(modalName);
 		const message = messageName && document.querySelector(messageName);
 		const alert = alertName && document.querySelector(alertName);
+		const inputMessages = inputMessageName && document.querySelectorAll(inputMessageName);
+
+		let inputsIsValidate = [];
 
 		inputs.forEach(input => {
 			input.addEventListener('input', () => {
 				if(!input.value) {
 					if(!input.placeholder.includes('*')) {
 						input.placeholder = input.placeholder + '*';
+
+						if(inputsIsValidate.includes(input.name)) {
+							const elemIndex = inputsIsValidate.findIndex(inputIsValidate => inputIsValidate === input.name);
+							console.log('elemIndex: ' + elemIndex);
+							inputsIsValidate = [...inputsIsValidate.slice(0, elemIndex), ...inputsIsValidate.slice(elemIndex + 1)]
+							console.log(inputsIsValidate);
+						}
 					}
 
 					message.textContent = 'Все поля со звездочкой “*” должны быть заполнены';
 				} else {
 					input.placeholder = input.placeholder.replace('*', '');
+					const inputData = checkInput(input);
+					if(inputData.bool) {
+						if(!inputsIsValidate.includes(inputData.inputname)) {
+							inputsIsValidate = [...inputsIsValidate, checkInput(input).inputname];
+						}
+						console.log(inputsIsValidate);
+					} else {
+						if(inputsIsValidate.includes(input.name)) {
+							const elemIndex = inputsIsValidate.findIndex(inputIsValidate => inputIsValidate === input.name);
+							console.log('elemIndex: ' + elemIndex);
+							inputsIsValidate = [...inputsIsValidate.slice(0, elemIndex), ...inputsIsValidate.slice(elemIndex + 1)]
+							console.log(inputsIsValidate);
+						}
+					}
+
+					if(inputsIsValidate.length === inputs.length) {
+						message.textContent = '';
+					}
 				}
 			});
 		});
@@ -191,7 +282,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		document.querySelector(btnName).addEventListener('click', (e) => {
 			e.preventDefault();
 			
-			let i = 0;
+			// let i = 0;
 
 			inputs.forEach(input => {
 				if(!input.value){
@@ -201,17 +292,29 @@ window.addEventListener('DOMContentLoaded', () => {
 
 					message.textContent = 'Все поля со звездочкой “*” должны быть заполнены';
 				} else {
-					++i;
+					// ++i;
 				}
 			});
 
-			if(i === inputs.length) {
-				console.log('Форма отправлена');
-				formName && resetInputs(inputs, message);
+			if(inputsIsValidate.length === inputs.length) {
+				// console.log('Форма отправлена');
+				inputsIsValidate = [];
+				formName && resetInputs(inputs, message, inputMessages);
 				modalName && closeModal(modal);
+				// console.log(document.documentElement.scrollTop)
+				// console.log(document.querySelector(alertName).getBoundingClientRect());
+				// formName && window.scrollTo({
+				// 	top: Number(document.documentElement.scrollTop),
+				// 	behavior: "smooth"
+				// });
 				
 				setTimeout(() => {
 					alert.style.display = 'block';
+
+					formName && window.scrollTo({
+						top: Number(document.body.scrollHeight),
+						behavior: "smooth"
+					});
 				
 					setTimeout(() => {
 						alert.style.display = 'none';
@@ -221,9 +324,9 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	};
 
-	valdateForm('.contact-modal', '', '.contact-modal__btn', '.contact-modal__error-message', '.modal__alert');
-	valdateForm('.partner-modal', '', '.partner-modal__btn', '.partner-modal__error-message', '.modal__alert');
-	valdateForm('', '.feedback__form', '.feedback-form__btn', '.feedback-form__error-message', '.feedback__alert');
+	validateForm('.contact-modal', '', '.contact-modal__btn', '.contact-modal__error-message', '.modal__alert', '.contact-modal__error-input');
+	validateForm('.partner-modal', '', '.partner-modal__btn', '.partner-modal__error-message', '.modal__alert', '.partner-modal__error-input');
+	validateForm('', '.feedback__form', '.feedback-form__btn', '.feedback-form__error-message', '.feedback__alert', '.feedback-form__error-input');
 	/* VALIDATION */
 
 	/* ANIMATIONS */

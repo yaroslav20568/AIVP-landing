@@ -373,7 +373,7 @@
 
 	.feedback {
 		&-form {
-			&__input {
+			&__input, &__error-input, &__error-message {
 				font-size: 14px;
 				line-height: 1.357;
 			}
@@ -1066,15 +1066,19 @@
 				margin-bottom: 0;
 			}
 
-			&__input {
+			&__col {
 				width: 100%;
+			}
+
+			&__input {
+				// width: 100%;
 				font-size: 14px;
 				line-height: 1.357;
 				margin-bottom: 26px;
 
-				&:nth-child(1), &:nth-child(3) {
-					margin-right: 0;
-				}
+				// &:nth-child(1), &:nth-child(3) {
+				// 	margin-right: 0;
+				// }
 			}
 		}
 

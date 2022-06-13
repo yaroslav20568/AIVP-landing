@@ -370,12 +370,24 @@
 					<input type="text" placeholder="Ваше сообщение" class="feedback-form__input">
 				</div> -->
 				<div class="feedback-form__row">
-					<input type="text" placeholder="ФИО" class="feedback-form__input">
-					<input type="text" placeholder="Компания" class="feedback-form__input">
+					<div class="feedback-form__col">
+						<input type="text" name="fio" placeholder="ФИО" class="feedback-form__input">
+						<div class="feedback-form__error-input"></div>
+					</div>
+					<div class="feedback-form__col">
+						<input type="text" name="company" placeholder="Компания" class="feedback-form__input">
+						<div class="feedback-form__error-input"></div>
+					</div>
 				</div>
 				<div class="feedback-form__row">
-					<input type="text" placeholder="Email" class="feedback-form__input">
-					<input type="text" placeholder="Телефон" class="feedback-form__input">
+					<div class="feedback-form__col">
+						<input type="text" name="email" placeholder="Email" class="feedback-form__input">
+						<div class="feedback-form__error-input"></div>
+					</div>
+					<div class="feedback-form__col">
+						<input type="text" name="phone" placeholder="Телефон" class="feedback-form__input">
+						<div class="feedback-form__error-input"></div>
+					</div>
 				</div>
 
 				<div class="feedback-form__error-message"></div>
