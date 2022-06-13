@@ -1016,11 +1016,15 @@ body {
 			justify-content: space-between;
 			margin-bottom: 26px;
 
-			&:nth-child(3) .feedback-form__input {
-				width: 100%;
-				margin-right: 0;
+			&:nth-child(2) {
 				margin-bottom: 0;
 			}
+
+			// &:nth-child(3) .feedback-form__input {
+			// 	width: 100%;
+			// 	margin-right: 0;
+			// 	margin-bottom: 0;
+			// }
 
 			// &:nth-child(2) {
 			// 	margin-left: 200px;
@@ -1061,16 +1065,18 @@ body {
 
 		&__error-input {
 			margin-top: 16px;
+			display: none;
 		}
 
 		&__error-input, &__error-message {
-			font-size: 22.4;
+			font-size: 22.4px;
 			line-height: 1.383;
 			color: #BFBFBF;
 		}
 
 		&__error-message {
 			text-align: center;
+			margin-top: 16px;
 		}
 
 		&__wrapper-btn {
@@ -1234,16 +1240,11 @@ body {
 	}
 
 	&__error-message {
-		&.show {
-			display: block;
-		}
-		&.hide {
-			display: none;
-		}
 		font-size: 14px;
 		line-height: 19px;
 		color: $grey_light;
 		margin-top: 16px;
+		display: none;
 	}
 
 	&__alert {

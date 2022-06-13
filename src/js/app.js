@@ -149,12 +149,15 @@ window.addEventListener('DOMContentLoaded', () => {
 	const anchors = document.querySelectorAll('#anchor');
 	const anchorsContent = document.querySelectorAll('#anchor-content');
 
+	const headerStyle = window.getComputedStyle(document.querySelector('.header'));
+	const headerHeight = headerStyle.height.replace('px', '');
+
 	anchors.forEach((anchor, i) => {
 		anchor.addEventListener('click', (e) => {
 			e.preventDefault();
 
-			const headerStyle = window.getComputedStyle(document.querySelector('.header'));
-			const headerHeight = headerStyle.height.replace('px', '');
+			// const headerStyle = window.getComputedStyle(document.querySelector('.header'));
+			// const headerHeight = headerStyle.height.replace('px', '');
 
 			const scrollToPosition = anchorsContent[i].getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight;
 
@@ -176,43 +179,52 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	const checkInput = (input) => {
 		// const fioReg = /^[a-zA-Zа-яА-ЯёЁ]*([-][a-zA-Zа-яА-ЯёЁ]*)?\s[a-zA-Zа-яА-ЯёЁ]*\s[a-zA-Zа-яА-ЯёЁ]*$/;
-		const fioReg = /^[a-zA-Zа-яА-ЯёЁ]*([-][a-zA-Zа-яА-ЯёЁ]*)?\s[a-zA-Zа-яА-ЯёЁ]*\s[a-zA-Zа-яА-ЯёЁ]*$/;
-		const companyReg = /^[a-zA-Zа-яА-ЯёЁ0-9]+$/;
+		const fioReg = /^[a-zA-Zа-яА-ЯёЁ0-9 ]+$/;
+		const companyReg = /^[a-zA-Zа-яА-ЯёЁ0-9 ]+$/;
 		const emailReg = /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i;
 		const phoneReg = /^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/;
-		const addinfoReg = /^[a-zA-Zа-яА-ЯёЁ0-9]+$/;
+		const addinfoReg = /^[a-zA-Zа-яА-ЯёЁ0-9 ]+$/;
 		let bool;
 
 		if(fioReg.test(input.value) && input.name === 'fio') {
 			if((input.value.length >= 6 && input.value.length <= 30)) {
 				bool =  true;
 				input.nextElementSibling.textContent = '';
+				input.nextElementSibling.style.display = 'none';
 			} else {
 				input.nextElementSibling.textContent = 'Ввод от 6 до 30 символов';
+				input.nextElementSibling.style.display = 'block';
 			}
 		} else if(companyReg.test(input.value) && input.name === 'company') {
 			if((input.value.length >= 4 && input.value.length <= 20)) {
 				bool =  true;
 				input.nextElementSibling.textContent = '';
+				input.nextElementSibling.style.display = 'none';
 			} else {
 				input.nextElementSibling.textContent = 'Ввод от 4 до 20 символов';
+				input.nextElementSibling.style.display = 'block';
 			}
 		} else if(emailReg.test(input.value) && input.name === 'email') {
 			bool =  true;
 			input.nextElementSibling.textContent = '';
+			input.nextElementSibling.style.display = 'none';
 		} else if(phoneReg.test(input.value) && input.name === 'phone') {
 			bool =  true;
 			input.nextElementSibling.textContent = '';
+			input.nextElementSibling.style.display = 'none';
 		} else if(addinfoReg.test(input.value) && input.name === 'addinfo') {
 			if((input.value.length >= 4 && input.value.length <= 30)) {
 				bool =  true;
 				input.nextElementSibling.textContent = '';
+				input.nextElementSibling.style.display = 'none';
 			} else {
 				input.nextElementSibling.textContent = 'Ввод от 4 до 30 символов';
+				input.nextElementSibling.style.display = 'block';
 			}
 		} else {
 			bool = false;
 			input.nextElementSibling.textContent = 'Некоректный ввод';
+			input.nextElementSibling.style.display = 'block';
 			
 			if(input.name === 'fio') {
 				input.nextElementSibling.textContent = 'Формат: Щука Игорь Юрьевич';
@@ -223,7 +235,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			} else if(input.name === 'phone') {
 				input.nextElementSibling.textContent = 'Формат: +375299865881';
 			} else if(input.name === 'addinfo') {
-				input.nextElementSibling.textContent = '123';
+				input.nextElementSibling.textContent = 'Формат: Компания существует 7 лет';
 			}
 		}
 		// console.log(i);
@@ -255,6 +267,7 @@ window.addEventListener('DOMContentLoaded', () => {
 					}
 
 					message.textContent = 'Все поля со звездочкой “*” должны быть заполнены';
+					message.style.display = 'block';
 				} else {
 					input.placeholder = input.placeholder.replace('*', '');
 					const inputData = checkInput(input);
@@ -291,6 +304,7 @@ window.addEventListener('DOMContentLoaded', () => {
 					}
 
 					message.textContent = 'Все поля со звездочкой “*” должны быть заполнены';
+					message.style.display = 'block';
 				} else {
 					// ++i;
 				}
@@ -311,13 +325,19 @@ window.addEventListener('DOMContentLoaded', () => {
 				setTimeout(() => {
 					alert.style.display = 'block';
 
+					console.log(document.querySelector(alertName))
 					formName && window.scrollTo({
-						top: Number(document.body.scrollHeight),
+						top: Number(document.querySelector(alertName).getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
 						behavior: "smooth"
 					});
 				
 					setTimeout(() => {
 						alert.style.display = 'none';
+
+						formName && window.scrollTo({
+							top: Number(document.querySelector(formName).parentElement.parentElement.getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
+							behavior: "smooth"
+						});
 					}, 2000);
 				}, 200);
 			}
