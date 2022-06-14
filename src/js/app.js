@@ -182,7 +182,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		const fioReg = /^[a-zA-Zа-яА-ЯёЁ0-9 ]+$/;
 		const companyReg = /^[a-zA-Zа-яА-ЯёЁ0-9 ]+$/;
 		const emailReg = /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i;
-		const phoneReg = /^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/;
+		const phoneReg = /^(\+\d{1,4})(\d{2,4})(\d{3})(\d{2})(\d{2})$/;
 		const addinfoReg = /^[a-zA-Zа-яА-ЯёЁ0-9 ]+$/;
 		let bool;
 
