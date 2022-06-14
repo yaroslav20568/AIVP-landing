@@ -923,6 +923,26 @@
 			top: -10px;
 		}
 	}
+
+	.page {
+		&__title {
+			font-size: 24px;
+		}
+
+		&__text {
+			font-size: 12px;
+		}
+	}
+
+	.paragraph {
+		&__title {
+			font-size: 18px;
+		}
+
+		&__under-paragraph {
+			font-size: 14px;
+		}
+	}
 }
 
 @media(max-width:600px) {
@@ -1283,6 +1303,12 @@
 		&__text {
 		}
 	}
+	
+	.page {
+		&__title {
+			font-size: 20px;
+		}
+	}
 }
 
 @media(max-width:360px) {
@@ -1313,6 +1339,10 @@
 	}
 
 	.btn-to-top {
+		display: none;
+	}
+
+	.modal-cookies {
 		display: none;
 	}
 }
