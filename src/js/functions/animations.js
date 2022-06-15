@@ -354,9 +354,9 @@ export const animations = () => {
 		});
 	});
 
-	gsap.from(".feedback__wrapper-btn ", {
+	gsap.from(".feedback-form__wrapper-btn", {
 		scrollTrigger: {
-			trigger: '.feedback__wrapper-btn ',
+			trigger: '.feedback-form__wrapper-btn',
 			// scrub: true,
 			start: "top 90%",
 			end: "top 0%",

@@ -175,7 +175,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	/* VALIDATION */
 	// let i = 0;
-	let inputsIsValidate = [];
+	// let inputsIsValidate = [];
 
 	const checkInput = (input) => {
 		// const fioReg = /^[a-zA-Zа-яА-ЯёЁ]*([-][a-zA-Zа-яА-ЯёЁ]*)?\s[a-zA-Zа-яА-ЯёЁ]*\s[a-zA-Zа-яА-ЯёЁ]*$/;

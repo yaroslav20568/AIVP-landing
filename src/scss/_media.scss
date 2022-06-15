@@ -648,9 +648,22 @@
 	}
 
 	.nav {
-		display: none;
+		width: 100%;
+		position: absolute;
+		left: -100%;
+		opacity: 0;
+		top: 0;
+		height: 100vh;
+		overflow: auto;
+		background: rgba(33, 36, 39, 1);
+		transition: .3s linear left, .3s linear opacity;
+	
+		&__list {
+			display: block;
+			padding: 40px 16px 16px;	
+		}
 
-		&--active &__item {
+		&__item {
 			padding: 5px 0;
 			margin-bottom: 10px;
 		}
@@ -1166,7 +1179,7 @@
 
 @media(max-width:490px) {
 	.intro {
-		background-image: url(../img/intro-bg360.jpg);
+		background-image: url("../img/intro-bg360.jpg");
 	}
 }
 
@@ -1357,7 +1370,7 @@
 
 @media(max-width:360px) {
 	.intro {
-		background-image: url(../img/intro-bg360.jpg);
+		// background: url("@/img/intro-bg360.jpg");
 
 		&__content {
 			padding: 0 20px 39px;

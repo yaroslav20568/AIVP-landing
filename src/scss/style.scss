@@ -57,22 +57,9 @@ body {
 	}
 
 	&--active {
-		display: block !important;
-		width: 100%;
-		position: absolute;
-		left: 0;
-		// top: 100%;
-		top: 0;
-		height: 100vh;
-		overflow: auto;
-		// background-color: $cyan_dark;
-		background: rgba(33, 36, 39, 1);
-	}
-
-	&--active &__list {
-		display: block;
-		padding: 40px 16px 16px;
-		
+		left: 0 !important;
+		opacity: 1 !important;
+		// transition: .3s linear left, .3s linear opacity;
 	}
 
 	&__item {
