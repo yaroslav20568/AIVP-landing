@@ -196,7 +196,9 @@ body {
 
 /* INTRO */
 .intro {
-	height: 100vh;
+	// height: 100vh;
+	// height: -webkit-fill-available;
+	height: calc(100vh - calc(100vh - 100%));
 	padding-top: 63px;
 	background: url("@img/intro-bg.jpg");
 	background-repeat: no-repeat;
@@ -558,12 +560,24 @@ body {
 
 		&:nth-child(2) {
 			&:after {
-				height: 0;
+				// height: 0;
+				// width: 0;
+				// left: 242px;
+				// border-left: 370px solid transparent;
+				// border-bottom: 370px solid #212427;
+				// transform: translateY(-50%) rotate(-34deg);
 				width: 0;
-				left: 242px;
-				border-left: 370px solid transparent;
-				border-bottom: 370px solid #212427;
-				transform: translateY(-50%) rotate(-34deg);
+				height: 0;
+				border: 240px solid $black;
+				border-top-width: 240px;
+				border-bottom-color: transparent;
+				border-bottom-width: 400px;
+				border-top-width: 0;
+				position: absolute;
+				// transform: rotate(43deg);
+				left: 80px;
+				top: 45px;
+				transform: rotate(-83deg);
 			}
 		}
 
