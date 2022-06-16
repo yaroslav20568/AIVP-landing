@@ -46,24 +46,27 @@ window.addEventListener('DOMContentLoaded', () => {
 	const burgerOpen = () => {
 		nav.classList.add('nav--active');
 		burger.classList.add('burger--active');
-		document.body.style.overflow = 'hidden';
 	};
 
 	const burgerClose = () => {
 		nav.classList.remove('nav--active');
 		burger.classList.remove('burger--active');
-		document.body.style.overflow = 'auto';
 	};
 
 	window.addEventListener('resize', () => {
+		if(burger.classList.contains('burger--active')) {
+			document.body.style.overflow = 'auto';
+		}
 		burgerClose();
 	});
 
 	burger.addEventListener('click', () => {
 		if(!nav.classList.contains('nav--active')) {
 			burgerOpen();
+			document.body.style.overflow = 'hidden';
 		} else {
 			burgerClose();
+			document.body.style.overflow = 'auto';
 		}
 	});
 	/* BURGER */
