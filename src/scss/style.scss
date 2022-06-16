@@ -196,9 +196,9 @@ body {
 
 /* INTRO */
 .intro {
-	// height: 100vh;
+	height: 100vh;
 	// height: -webkit-fill-available;
-	height: calc(100vh - calc(100vh - 100%));
+	// height: calc(100vh - calc(100vh - 100%));
 	padding-top: 63px;
 	background: url("@img/intro-bg.jpg");
 	background-repeat: no-repeat;
@@ -209,17 +209,25 @@ body {
 		height: 100%;
 		display: flex;
 		justify-content: center;
-		align-items: end;
+		align-items: center;
 	}
 
 	&__content {
-		max-width: 1291px;
-		margin: 0 auto;
-		padding: 0 0 124px;
+		// max-width: 1291px;
+		// margin: 0 auto;
+		padding: 58px 15px 122px;
 		text-align: center;
 	}
 
+	&__img {
+		max-width: 100%;
+		width: 100%;
+		margin-bottom: 24px;
+	}
+
 	&__title {
+		max-width: 1291px;
+		margin: 0 auto;
 		font-size: $fs57p6;
 		line-height: 1.371;
 		font-weight: $fw600;
