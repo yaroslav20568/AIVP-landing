@@ -21,18 +21,18 @@ window.addEventListener('DOMContentLoaded', () => {
 		let matches = document.cookie.match(new RegExp(
 			"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
 		));
-		
+
 		return matches ? decodeURIComponent(matches[1]) : undefined;
 	}
 
-	if(!getCookie('site')) {
+	if (!getCookie('site')) {
 		setTimeout(() => {
 			document.querySelector('.modal-cookies').classList.add('modal-cookies--active');
 		}, 1000);
 	}
 
 	const modalCookiesBtn = document.querySelector('.modal-cookies__btn');
-	
+
 	modalCookiesBtn.addEventListener('click', () => {
 		document.cookie = "site=AIVP; max-age=2592000";
 		document.querySelector('.modal-cookies').classList.remove('modal-cookies--active');
@@ -54,14 +54,14 @@ window.addEventListener('DOMContentLoaded', () => {
 	};
 
 	window.addEventListener('resize', () => {
-		if(burger.classList.contains('burger--active')) {
+		if (burger.classList.contains('burger--active')) {
 			document.body.style.overflow = 'auto';
 		}
 		burgerClose();
 	});
 
 	burger.addEventListener('click', () => {
-		if(!nav.classList.contains('nav--active')) {
+		if (!nav.classList.contains('nav--active')) {
 			burgerOpen();
 			document.body.style.overflow = 'hidden';
 		} else {
@@ -111,15 +111,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	const outsideClickModal = (modal) => {
 		modal.addEventListener('click', (e) => {
-			if(e.target.parentElement === modal) {
+			if (e.target.parentElement === modal) {
 				closeModal(modal);
 			}
 		});
 	};
 
 	const escEnterModal = (modal) => {
-		document.addEventListener('keyup', function(e){
-			if(e.keyCode === 27) {
+		document.addEventListener('keyup', function (e) {
+			if (e.keyCode === 27) {
 				closeModal(modal);
 			}
 		});
@@ -137,7 +137,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
-	
+
 	const modalCloseBtns = document.querySelectorAll('.modal__close');
 
 	modalCloseBtns.forEach(modalCloseBtn => {
@@ -177,8 +177,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	/* ANCHORS */
 
 	/* VALIDATION */
-	// let i = 0;
-	// let inputsIsValidate = [];
 
 	const checkInput = (input) => {
 		// const fioReg = /^[a-zA-Zа-яА-ЯёЁ]*([-][a-zA-Zа-яА-ЯёЁ]*)?\s[a-zA-Zа-яА-ЯёЁ]*\s[a-zA-Zа-яА-ЯёЁ]*$/;
@@ -189,35 +187,35 @@ window.addEventListener('DOMContentLoaded', () => {
 		const addinfoReg = /^[a-zA-Zа-яА-ЯёЁ0-9 ]+$/;
 		let bool;
 
-		if(fioReg.test(input.value) && input.name === 'fio') {
-			if((input.value.length >= 6 && input.value.length <= 30)) {
-				bool =  true;
+		if (fioReg.test(input.value) && input.name === 'fio') {
+			if ((input.value.length >= 6 && input.value.length <= 30)) {
+				bool = true;
 				input.nextElementSibling.textContent = '';
 				input.nextElementSibling.style.display = 'none';
 			} else {
 				input.nextElementSibling.textContent = 'Ввод от 6 до 30 символов';
 				input.nextElementSibling.style.display = 'block';
 			}
-		} else if(companyReg.test(input.value) && input.name === 'company') {
-			if((input.value.length >= 4 && input.value.length <= 20)) {
-				bool =  true;
+		} else if (companyReg.test(input.value) && input.name === 'company') {
+			if ((input.value.length >= 4 && input.value.length <= 20)) {
+				bool = true;
 				input.nextElementSibling.textContent = '';
 				input.nextElementSibling.style.display = 'none';
 			} else {
 				input.nextElementSibling.textContent = 'Ввод от 4 до 20 символов';
 				input.nextElementSibling.style.display = 'block';
 			}
-		} else if(emailReg.test(input.value) && input.name === 'email') {
-			bool =  true;
+		} else if (emailReg.test(input.value) && input.name === 'email') {
+			bool = true;
 			input.nextElementSibling.textContent = '';
 			input.nextElementSibling.style.display = 'none';
-		} else if(phoneReg.test(input.value) && input.name === 'phone') {
-			bool =  true;
+		} else if (phoneReg.test(input.value) && input.name === 'phone') {
+			bool = true;
 			input.nextElementSibling.textContent = '';
 			input.nextElementSibling.style.display = 'none';
-		} else if(addinfoReg.test(input.value) && input.name === 'addinfo') {
-			if((input.value.length >= 4 && input.value.length <= 30)) {
-				bool =  true;
+		} else if (addinfoReg.test(input.value) && input.name === 'addinfo') {
+			if ((input.value.length >= 4 && input.value.length <= 30)) {
+				bool = true;
 				input.nextElementSibling.textContent = '';
 				input.nextElementSibling.style.display = 'none';
 			} else {
@@ -228,22 +226,22 @@ window.addEventListener('DOMContentLoaded', () => {
 			bool = false;
 			input.nextElementSibling.textContent = 'Некоректный ввод';
 			input.nextElementSibling.style.display = 'block';
-			
-			if(input.name === 'fio') {
+
+			if (input.name === 'fio') {
 				input.nextElementSibling.textContent = 'Формат: Щука Игорь Юрьевич';
-			} else if(input.name === 'company') {
+			} else if (input.name === 'company') {
 				input.nextElementSibling.textContent = 'Формат: Интексофт';
-			} else if(input.name === 'email') {
+			} else if (input.name === 'email') {
 				input.nextElementSibling.textContent = 'Формат: ravlushevich.iarek@mail.ru';
-			} else if(input.name === 'phone') {
+			} else if (input.name === 'phone') {
 				input.nextElementSibling.textContent = 'Формат: +375299865881';
-			} else if(input.name === 'addinfo') {
+			} else if (input.name === 'addinfo') {
 				input.nextElementSibling.textContent = 'Формат: Компания существует 7 лет';
 			}
 		}
 		// console.log(i);
 		// return bool;
-		return {'bool': bool, 'inputname': input.name};
+		return { 'bool': bool, 'inputname': input.name };
 	};
 
 	const validateForm = (modalName, formName, btnName, messageName, alertName, inputMessageName) => {
@@ -252,16 +250,17 @@ window.addEventListener('DOMContentLoaded', () => {
 		const message = messageName && document.querySelector(messageName);
 		const alert = alertName && document.querySelector(alertName);
 		const inputMessages = inputMessageName && document.querySelectorAll(inputMessageName);
+		const form = document.querySelector(modalName + ' form');
 
 		let inputsIsValidate = [];
 
 		inputs.forEach(input => {
 			input.addEventListener('input', () => {
-				if(!input.value) {
-					if(!input.placeholder.includes('*')) {
+				if (!input.value) {
+					if (!input.placeholder.includes('*')) {
 						input.placeholder = input.placeholder + '*';
 
-						if(inputsIsValidate.includes(input.name)) {
+						if (inputsIsValidate.includes(input.name)) {
 							const elemIndex = inputsIsValidate.findIndex(inputIsValidate => inputIsValidate === input.name);
 							console.log('elemIndex: ' + elemIndex);
 							inputsIsValidate = [...inputsIsValidate.slice(0, elemIndex), ...inputsIsValidate.slice(elemIndex + 1)]
@@ -274,13 +273,13 @@ window.addEventListener('DOMContentLoaded', () => {
 				} else {
 					input.placeholder = input.placeholder.replace('*', '');
 					const inputData = checkInput(input);
-					if(inputData.bool) {
-						if(!inputsIsValidate.includes(inputData.inputname)) {
+					if (inputData.bool) {
+						if (!inputsIsValidate.includes(inputData.inputname)) {
 							inputsIsValidate = [...inputsIsValidate, checkInput(input).inputname];
 						}
 						console.log(inputsIsValidate);
 					} else {
-						if(inputsIsValidate.includes(input.name)) {
+						if (inputsIsValidate.includes(input.name)) {
 							const elemIndex = inputsIsValidate.findIndex(inputIsValidate => inputIsValidate === input.name);
 							console.log('elemIndex: ' + elemIndex);
 							inputsIsValidate = [...inputsIsValidate.slice(0, elemIndex), ...inputsIsValidate.slice(elemIndex + 1)]
@@ -288,7 +287,7 @@ window.addEventListener('DOMContentLoaded', () => {
 						}
 					}
 
-					if(inputsIsValidate.length === inputs.length) {
+					if (inputsIsValidate.length === inputs.length) {
 						message.textContent = '';
 					}
 				}
@@ -297,12 +296,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		document.querySelector(btnName).addEventListener('click', (e) => {
 			e.preventDefault();
-			
+
 			// let i = 0;
 
 			inputs.forEach(input => {
-				if(!input.value){
-					if(!input.placeholder.includes('*')) {
+				if (!input.value) {
+					if (!input.placeholder.includes('*')) {
 						input.placeholder = input.placeholder + '*';
 					}
 
@@ -313,18 +312,25 @@ window.addEventListener('DOMContentLoaded', () => {
 				}
 			});
 
-			if(inputsIsValidate.length === inputs.length) {
+			if (inputsIsValidate.length === inputs.length) {
+				let formData = new FormData(form);
+
+				console.log(formData);
+
+				fetch('sendmail.php', {
+					method: 'POST',
+					body: formData
+				})
+				.then(data => console.log(data))
+				.catch(e => console.log(e))
+
 				// console.log('Форма отправлена');
 				inputsIsValidate = [];
 				formName && resetInputs(inputs, message, inputMessages);
 				modalName && closeModal(modal);
-				// console.log(document.documentElement.scrollTop)
-				// console.log(document.querySelector(alertName).getBoundingClientRect());
-				// formName && window.scrollTo({
-				// 	top: Number(document.documentElement.scrollTop),
-				// 	behavior: "smooth"
-				// });
-				
+
+
+
 				setTimeout(() => {
 					alert.style.display = 'block';
 
@@ -333,7 +339,7 @@ window.addEventListener('DOMContentLoaded', () => {
 						top: Number(document.querySelector(alertName).getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
 						behavior: "smooth"
 					});
-				
+
 					setTimeout(() => {
 						alert.style.display = 'none';
 
