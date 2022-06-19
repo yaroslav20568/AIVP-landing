@@ -76,7 +76,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	const partnerModal = document.querySelector('.partner-modal');
 
 	const resetInputs = (inputs, message, inputMessages) => {
-		console.log(message)
 		inputs.forEach((input, i) => {
 			input.value = '';
 			input.placeholder = input.placeholder.replace('*', '');
@@ -170,6 +169,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			});
 
 			burgerClose();
+			document.body.style.overflow = 'auto';
 
 			history.pushState(null, null, anchor.href);
 		});
@@ -180,7 +180,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	const checkInput = (input) => {
 		// const fioReg = /^[a-zA-Zа-яА-ЯёЁ]*([-][a-zA-Zа-яА-ЯёЁ]*)?\s[a-zA-Zа-яА-ЯёЁ]*\s[a-zA-Zа-яА-ЯёЁ]*$/;
-		const fioReg = /^[a-zA-Zа-яА-ЯёЁ0-9 ]+$/;
+		const fioReg = /^[a-zA-Zа-яА-ЯёЁ ]+$/;
 		const companyReg = /^[a-zA-Zа-яА-ЯёЁ0-9 ]+$/;
 		const emailReg = /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i;
 		const phoneReg = /^(\+\d{1,4})(\d{2,4})(\d{3})(\d{2})(\d{2})$/;
@@ -239,8 +239,7 @@ window.addEventListener('DOMContentLoaded', () => {
 				input.nextElementSibling.textContent = 'Формат: Компания существует 7 лет';
 			}
 		}
-		// console.log(i);
-		// return bool;
+
 		return { 'bool': bool, 'inputname': input.name };
 	};
 
@@ -262,9 +261,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 						if (inputsIsValidate.includes(input.name)) {
 							const elemIndex = inputsIsValidate.findIndex(inputIsValidate => inputIsValidate === input.name);
-							console.log('elemIndex: ' + elemIndex);
 							inputsIsValidate = [...inputsIsValidate.slice(0, elemIndex), ...inputsIsValidate.slice(elemIndex + 1)]
-							console.log(inputsIsValidate);
 						}
 					}
 
@@ -277,13 +274,10 @@ window.addEventListener('DOMContentLoaded', () => {
 						if (!inputsIsValidate.includes(inputData.inputname)) {
 							inputsIsValidate = [...inputsIsValidate, checkInput(input).inputname];
 						}
-						console.log(inputsIsValidate);
 					} else {
 						if (inputsIsValidate.includes(input.name)) {
 							const elemIndex = inputsIsValidate.findIndex(inputIsValidate => inputIsValidate === input.name);
-							console.log('elemIndex: ' + elemIndex);
 							inputsIsValidate = [...inputsIsValidate.slice(0, elemIndex), ...inputsIsValidate.slice(elemIndex + 1)]
-							console.log(inputsIsValidate);
 						}
 					}
 
@@ -315,40 +309,36 @@ window.addEventListener('DOMContentLoaded', () => {
 			if (inputsIsValidate.length === inputs.length) {
 				let formData = new FormData(form);
 
-				console.log(formData);
-
 				fetch('sendmail.php', {
 					method: 'POST',
 					body: formData
 				})
-				.then(data => console.log(data))
-				.catch(e => console.log(e))
-
-				// console.log('Форма отправлена');
-				inputsIsValidate = [];
-				formName && resetInputs(inputs, message, inputMessages);
-				modalName && closeModal(modal);
+				.then(() => {
+					inputsIsValidate = [];
+					formName && resetInputs(inputs, message, inputMessages);
+					modalName && closeModal(modal);
 
 
-
-				setTimeout(() => {
-					alert.style.display = 'block';
-
-					console.log(document.querySelector(alertName))
-					formName && window.scrollTo({
-						top: Number(document.querySelector(alertName).getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
-						behavior: "smooth"
-					});
 
 					setTimeout(() => {
-						alert.style.display = 'none';
+						alert.style.display = 'block';
 
+						console.log(document.querySelector(alertName))
 						formName && window.scrollTo({
-							top: Number(document.querySelector(formName).parentElement.parentElement.getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
+							top: Number(document.querySelector(alertName).getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
 							behavior: "smooth"
 						});
-					}, 2000);
-				}, 200);
+
+						setTimeout(() => {
+							alert.style.display = 'none';
+
+							formName && window.scrollTo({
+								top: Number(document.querySelector(formName).parentElement.parentElement.getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
+								behavior: "smooth"
+							});
+						}, 2000);
+					}, 200);
+				})
 			}
 		});
 	};
