@@ -11,12 +11,12 @@
 	$mail = new PHPMailer();
 	$mail->CharSet = "UTF-8";
 	$mail->isSMTP();
-	$mail->Host   = 'smtp.mail.ru';
+	$mail->Host   = 'smtp.mail.ru'; //Адрес SMTP сервера
 	$mail->SMTPAuth   = true;
-	$mail->Username   = 'rak2020999@inbox.ru';
-	$mail->Password   = 'n8qX18SqkaiCeNNwWCRp';
-	$mail->SMTPSecure = 'ssl';
-	$mail->Port       = 465;
+	$mail->Username   = '*************@***.by'; // ваше имя пользователя
+	$mail->Password   = '***********'; // ваш пароль
+	$mail->SMTPSecure = 'ssl'; // шифрование ssl
+	$mail->Port       = 465; // порт подключения
 	$mail->SMTPDebug = 4;
 	
 	$elementsForm = [];
@@ -25,9 +25,9 @@
 		$elementsForm[$key] = $value;
 	}
 
-	$mail->setFrom('rak2020999@inbox.ru', $_POST["fio"]);
-	$mail->addAddress('info@aivp.io');
-	
+	$mail->setFrom('*************@***.by', $_POST["fio"]); // от кого
+	$mail->addAddress('info@aivp.io'); // кому
+
 	$mail->Subject = $_POST["addinfo"] ? "Стать партнёром" : "Свяжитесь с нами";
 
 	$body = "";

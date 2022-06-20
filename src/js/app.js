@@ -311,28 +311,50 @@ window.addEventListener('DOMContentLoaded', () => {
 				formName && resetInputs(inputs, message, inputMessages);
 				modalName && closeModal(modal);
 
+				let formData = new FormData(form);
+				fetch('sendmail.php', {
+					method: 'POST',
+					body: formData
+				})
+				.then(() => {
+					if(alertName === '.modal-message') {
+						// document.body.style.overflow = 'hidden';
 
+						setTimeout(() => {
+							alert.style.display = 'block';
 
-				setTimeout(() => {
-					alert.style.display = 'block';
+							document.querySelector('.modal-message__btn').addEventListener('click', () => {
+								setTimeout(() => {
+									// document.body.style.overflow = 'auto';
+									alert.style.display = 'none';
+								}, 200);
+							});
+						}, 200);
+					} else {
+						setTimeout(() => {
+							alert.style.display = 'block';
+		
+							formName && window.scrollTo({
+								top: Number(document.querySelector(alertName).getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
+								behavior: "smooth"
+							});
+		
+							setTimeout(() => {
+								alert.style.display = 'none';
+		
+								formName && window.scrollTo({
+									top: Number(document.querySelector(formName).parentElement.parentElement.getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
+									behavior: "smooth"
+								});
+							}, 2000);
+						}, 200);
+					}
+				})
 
-					console.log(document.querySelector(alertName))
-					formName && window.scrollTo({
-						top: Number(document.querySelector(alertName).getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
-						behavior: "smooth"
-					});
+				
 
-					setTimeout(() => {
-						alert.style.display = 'none';
-
-						formName && window.scrollTo({
-							top: Number(document.querySelector(formName).parentElement.parentElement.getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
-							behavior: "smooth"
-						});
-					}, 2000);
-				}, 200);	
 				// let formData = new FormData(form);
-
+;
 				// fetch('sendmail.php', {
 				// 	method: 'POST',
 				// 	body: formData
@@ -340,7 +362,7 @@ window.addEventListener('DOMContentLoaded', () => {
 				// .then(() => {
 				// 	inputsIsValidate = [];
 				// 	formName && resetInputs(inputs, message, inputMessages);
-				// 	modalName && closeModal(modal);
+				// 	modalName && closeModal(modal)
 
 
 
@@ -367,8 +389,8 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	};
 
-	validateForm('.contact-modal', '', '.contact-modal__btn', '.contact-modal__error-message', '.modal__alert', '.contact-modal__error-input');
-	validateForm('.partner-modal', '', '.partner-modal__btn', '.partner-modal__error-message', '.modal__alert', '.partner-modal__error-input');
+	validateForm('.contact-modal', '', '.contact-modal__btn', '.contact-modal__error-message', '.modal-message', '.contact-modal__error-input');
+	validateForm('.partner-modal', '', '.partner-modal__btn', '.partner-modal__error-message', '.modal-message', '.partner-modal__error-input');
 	validateForm('', '.feedback__form', '.feedback-form__btn', '.feedback-form__error-message', '.feedback__alert', '.feedback-form__error-input');
 	/* VALIDATION */
 
