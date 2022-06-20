@@ -1422,6 +1422,55 @@ body {
 		transform: translateY(-50%) rotate(135deg);
 	}
 }
+
+.modal-message {
+	padding: 32px;
+	max-width: 480px;
+	background-color: #fff;
+	border-radius: 16px;
+	position: absolute;
+	right: 50px;
+	top: 90px;
+	text-align: center;
+
+	&__img {
+		margin-bottom: 16px;
+	}
+
+	&__title {
+		font-weight: 600;
+		font-size: 36px;
+		line-height: 1;
+		color: $black;
+		margin-bottom: 16px;
+	}
+
+	&__text {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1.357;
+		color: #4F575E;
+		margin-bottom: 16px;
+	}
+	
+	&__btn {
+		display: inline-block;
+		padding: 16px 36px;
+		border: 2px solid #3903AA;
+		border-radius: 28px;
+
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 1.187;
+		color: #3903AA;
+		transition: .3s linear color, .3s linear background-color;
+
+		&:hover {
+			color: #fff;
+			background-color: #3903AA;
+		}
+	}
+}
 /* MODALS */
 
 

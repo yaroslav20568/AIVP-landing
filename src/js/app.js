@@ -307,38 +307,62 @@ window.addEventListener('DOMContentLoaded', () => {
 			});
 
 			if (inputsIsValidate.length === inputs.length) {
-				let formData = new FormData(form);
-
-				fetch('sendmail.php', {
-					method: 'POST',
-					body: formData
-				})
-				.then(() => {
-					inputsIsValidate = [];
-					formName && resetInputs(inputs, message, inputMessages);
-					modalName && closeModal(modal);
+				inputsIsValidate = [];
+				formName && resetInputs(inputs, message, inputMessages);
+				modalName && closeModal(modal);
 
 
+
+				setTimeout(() => {
+					alert.style.display = 'block';
+
+					console.log(document.querySelector(alertName))
+					formName && window.scrollTo({
+						top: Number(document.querySelector(alertName).getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
+						behavior: "smooth"
+					});
 
 					setTimeout(() => {
-						alert.style.display = 'block';
+						alert.style.display = 'none';
 
-						console.log(document.querySelector(alertName))
 						formName && window.scrollTo({
-							top: Number(document.querySelector(alertName).getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
+							top: Number(document.querySelector(formName).parentElement.parentElement.getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
 							behavior: "smooth"
 						});
+					}, 2000);
+				}, 200);	
+				// let formData = new FormData(form);
 
-						setTimeout(() => {
-							alert.style.display = 'none';
+				// fetch('sendmail.php', {
+				// 	method: 'POST',
+				// 	body: formData
+				// })
+				// .then(() => {
+				// 	inputsIsValidate = [];
+				// 	formName && resetInputs(inputs, message, inputMessages);
+				// 	modalName && closeModal(modal);
 
-							formName && window.scrollTo({
-								top: Number(document.querySelector(formName).parentElement.parentElement.getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
-								behavior: "smooth"
-							});
-						}, 2000);
-					}, 200);
-				})
+
+
+				// 	setTimeout(() => {
+				// 		alert.style.display = 'block';
+
+				// 		console.log(document.querySelector(alertName))
+				// 		formName && window.scrollTo({
+				// 			top: Number(document.querySelector(alertName).getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
+				// 			behavior: "smooth"
+				// 		});
+
+				// 		setTimeout(() => {
+				// 			alert.style.display = 'none';
+
+				// 			formName && window.scrollTo({
+				// 				top: Number(document.querySelector(formName).parentElement.parentElement.getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
+				// 				behavior: "smooth"
+				// 			});
+				// 		}, 2000);
+				// 	}, 200);
+				// })
 			}
 		});
 	};
