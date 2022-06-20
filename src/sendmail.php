@@ -26,7 +26,7 @@
 	}
 
 	$mail->setFrom('ravlushevich.iarek@mail.ru', $_POST["fio"]);
-	$mail->addAddress('rak2020999@inbox.ru');
+	$mail->addAddress('info@aivp.io');
 	
 	$mail->Subject = $_POST["addinfo"] ? "Стать партнёром" : "Свяжитесь с нами";
 
