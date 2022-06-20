@@ -13,8 +13,8 @@
 	$mail->isSMTP();
 	$mail->Host   = 'smtp.mail.ru';
 	$mail->SMTPAuth   = true;
-	$mail->Username   = 'ravlushevich.iarek@mail.ru';
-	$mail->Password   = 'mLEfRQzShTudqmeypXcQ';
+	$mail->Username   = 'rak2020999@inbox.ru';
+	$mail->Password   = 'n8qX18SqkaiCeNNwWCRp';
 	$mail->SMTPSecure = 'ssl';
 	$mail->Port       = 465;
 	$mail->SMTPDebug = 4;
@@ -25,7 +25,7 @@
 		$elementsForm[$key] = $value;
 	}
 
-	$mail->setFrom('ravlushevich.iarek@mail.ru', $_POST["fio"]);
+	$mail->setFrom('rak2020999@inbox.ru', $_POST["fio"]);
 	$mail->addAddress('info@aivp.io');
 	
 	$mail->Subject = $_POST["addinfo"] ? "Стать партнёром" : "Свяжитесь с нами";
