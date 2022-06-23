@@ -72,79 +72,79 @@ window.addEventListener('DOMContentLoaded', () => {
 	/* BURGER */
 
 	/* MODALS */
-	const contactModal = document.querySelector('.contact-modal');
-	const partnerModal = document.querySelector('.partner-modal');
+	// const contactModal = document.querySelector('.contact-modal');
+	// const partnerModal = document.querySelector('.partner-modal');
 
-	const resetInputs = (inputs, message, inputMessages) => {
-		inputs.forEach((input, i) => {
-			input.value = '';
-			input.placeholder = input.placeholder.replace('*', '');
+	// const resetInputs = (inputs, message, inputMessages) => {
+	// 	inputs.forEach((input, i) => {
+	// 		input.value = '';
+	// 		input.placeholder = input.placeholder.replace('*', '');
 
-			inputMessages[i].textContent = '';
-		});
+	// 		// inputMessages[i].textContent = '';
+	// 	});
 
-		// message.textContent = 'Все поля должны быть заполнены';
-		message.textContent = '';
-	};
+	// 	// message.textContent = 'Все поля должны быть заполнены';
+	// 	message.textContent = '';
+	// };
 
-	const openModal = (modal) => {
-		document.body.style.overflow = 'hidden';
-		modal.classList.add('modal--active');
+	// const openModal = (modal) => {
+	// 	document.body.style.overflow = 'hidden';
+	// 	modal.classList.add('modal--active');
 
-		outsideClickModal(modal);
-		escEnterModal(modal);
-	};
+	// 	outsideClickModal(modal);
+	// 	escEnterModal(modal);
+	// };
 
-	const closeModal = (modal) => {
-		const inputs = document.querySelectorAll(`.${modal.classList[0]} input[type="text"]`);
-		const message = document.querySelector(`.${modal.classList[0]}__error-message`);
-		const inputMessages = document.querySelectorAll(`.${modal.classList[0]}__error-input`);
-		resetInputs(inputs, message, inputMessages);
+	// const closeModal = (modal) => {
+	// 	const inputs = document.querySelectorAll(`.${modal.classList[0]} input[type="text"]`);
+	// 	const message = document.querySelector(`.${modal.classList[0]}__error-message`);
+	// 	const inputMessages = document.querySelectorAll(`.${modal.classList[0]}__error-input`);
+	// 	resetInputs(inputs, message, inputMessages);
 
-		document.body.style.overflow = 'auto';
-		modal.classList.remove('modal--active');
-	};
+	// 	document.body.style.overflow = 'auto';
+	// 	modal.classList.remove('modal--active');
+	// };
 
-	const contactBtns = document.querySelectorAll('.btn--contact');
-	const partnerBtns = document.querySelectorAll('.btn--partner');
+	// const contactBtns = document.querySelectorAll('.btn--contact');
+	// const partnerBtns = document.querySelectorAll('.btn--partner');
 
-	const outsideClickModal = (modal) => {
-		modal.addEventListener('click', (e) => {
-			if (e.target.parentElement === modal) {
-				closeModal(modal);
-			}
-		});
-	};
+	// const outsideClickModal = (modal) => {
+	// 	modal.addEventListener('click', (e) => {
+	// 		if (e.target.parentElement === modal) {
+	// 			closeModal(modal);
+	// 		}
+	// 	});
+	// };
 
-	const escEnterModal = (modal) => {
-		document.addEventListener('keyup', function (e) {
-			if (e.keyCode === 27) {
-				closeModal(modal);
-			}
-		});
-	};
+	// const escEnterModal = (modal) => {
+	// 	document.addEventListener('keyup', function (e) {
+	// 		if (e.keyCode === 27) {
+	// 			closeModal(modal);
+	// 		}
+	// 	});
+	// };
 
-	contactBtns.forEach(contactBtn => {
-		contactBtn.addEventListener('click', () => {
-			openModal(contactModal);
-		});
-	});
+	// contactBtns.forEach(contactBtn => {
+	// 	contactBtn.addEventListener('click', () => {
+	// 		openModal(contactModal);
+	// 	});
+	// });
 
-	partnerBtns.forEach(partnerBtn => {
-		partnerBtn.addEventListener('click', () => {
-			openModal(partnerModal);
-		});
-	});
+	// partnerBtns.forEach(partnerBtn => {
+	// 	partnerBtn.addEventListener('click', () => {
+	// 		openModal(partnerModal);
+	// 	});
+	// });
 
 
-	const modalCloseBtns = document.querySelectorAll('.modal__close');
+	// const modalCloseBtns = document.querySelectorAll('.modal__close');
 
-	modalCloseBtns.forEach(modalCloseBtn => {
-		modalCloseBtn.addEventListener('click', () => {
-			const modal = modalCloseBtn.parentElement.parentElement.parentElement;
-			closeModal(modal);
-		});
-	});
+	// modalCloseBtns.forEach(modalCloseBtn => {
+	// 	modalCloseBtn.addEventListener('click', () => {
+	// 		const modal = modalCloseBtn.parentElement.parentElement.parentElement;
+	// 		closeModal(modal);
+	// 	});
+	// });
 	/* MODALS */
 
 	/* ANCHORS */

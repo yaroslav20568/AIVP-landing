@@ -1494,12 +1494,23 @@
 		}
 	}
 
+	.modal {
+		&__content {
+			width: 100%;
+		}
+	}
+
 	.modal-message {
 		right: auto;
 		max-width: none;
 		width: 90%;
 		left: 50%;
 		transform: translateX(-50%);
+	}
+
+	.captcha {
+		transform:scale(0.8);
+		transform-origin:0 0;
 	}
 }
 
@@ -1593,6 +1604,10 @@
 
 	.modal-cookies {
 		display: none;
+	}
+
+	.captcha {
+		transform:scale(0.7);
 	}
 }
 

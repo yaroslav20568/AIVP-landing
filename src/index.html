@@ -13,7 +13,43 @@
 
 		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
+		<script src="https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render=explicit" async defer></script>
+
 		<script type="text/javascript">
+			var recaptchaCallback = function () {
+				feedbackCaptcha = grecaptcha.render('feedback__captcha', {
+					'sitekey' : '6LcX1JAgAAAAAC60E6ZchR9j6nWTltOmyMiFqZo4',
+					'theme': 'dark'
+				});
+
+				contactCaptcha = grecaptcha.render('contact-modal__captcha', {
+					'sitekey' : '6LcX1JAgAAAAAC60E6ZchR9j6nWTltOmyMiFqZo4'
+				});
+
+				partnerCaptcha = grecaptcha.render('partner-modal__captcha', {
+					'sitekey' : '6LcX1JAgAAAAAC60E6ZchR9j6nWTltOmyMiFqZo4'
+				});
+
+				// feedbackCaptcha1 = grecaptcha.render('captcha1', {
+				// 	'sitekey' : '6LcX1JAgAAAAAC60E6ZchR9j6nWTltOmyMiFqZo4',
+				// });
+				
+				// contactCaptcha = grecaptcha.render('captcha2', {
+				// 	'sitekey' : '6LcX1JAgAAAAAC60E6ZchR9j6nWTltOmyMiFqZo4'
+				// });
+
+				// partnerCaptcha = grecaptcha.render('captcha3', {
+				// 	'sitekey' : '6LcX1JAgAAAAAC60E6ZchR9j6nWTltOmyMiFqZo4'
+				// });
+			}
+
+			// var imNotARobot = function() {
+			// 	console.log(grecaptcha.getResponse())
+			// 	if(document.querySelector('.modal__recaptcha-error').textContent) {
+			// 		document.querySelector('.modal__recaptcha-error').textContent = '';
+			// 	}
+			// };
+
 			var onloadCallback = function() {
 				// document.querySelector('.feedback-form__btn').addEventListener('click', (e) => {
 				// 	e.preventDefault();
@@ -23,17 +59,48 @@
 				// 	console.log(response)
 				// console.log(response)
 
+				// document.querySelector('.chaptcha1__btn').addEventListener('click', () => {
+				// 	grecaptcha.reset(feedbackCaptcha1);
+				// });
+
+				// document.querySelector('.chaptcha2__btn').addEventListener('click', () => {
+				// 	grecaptcha.reset(contactCaptcha);
+				// });
+
+				// document.querySelector('.chaptcha3__btn').addEventListener('click', () => {
+				// 	grecaptcha.reset(partnerCaptcha);
+				// });
+				
+				const resetCaptcha = (captchaName) => {
+					if(captchaName === 'feedback__captcha') {
+						grecaptcha.reset(feedbackCaptcha);	
+						// console.log('feedbackCaptcha')				
+					} else if(captchaName === 'contact-modal__captcha') {
+						grecaptcha.reset(contactCaptcha);	
+						// console.log('contactCaptcha')	
+					} else if(captchaName === 'partner-modal__captcha') {
+						grecaptcha.reset(partnerCaptcha);	
+						// console.log('partnerCaptcha')	
+					}
+				};
+
 				const headerStyle = window.getComputedStyle(document.querySelector('.header'));
 				const headerHeight = headerStyle.height.replace('px', '');
+
+				const contactModal = document.querySelector('.contact-modal');
+				const partnerModal = document.querySelector('.partner-modal');
 
 				const resetInputs = (inputs, message, inputMessages) => {
 					inputs.forEach((input, i) => {
 						input.value = '';
 						input.placeholder = input.placeholder.replace('*', '');
 
-						inputMessages[i].textContent = '';
+						// inputMessages[i].textContent = '';
 					});
-					grecaptcha.reset();
+
+					// grecaptcha.reset(feedbackCaptcha);
+					// grecaptcha.reset(contactCaptcha);
+					// grecaptcha.reset(partnerCaptcha);
 
 					// message.textContent = 'Все поля должны быть заполнены';
 					message.textContent = '';
@@ -43,11 +110,76 @@
 					const inputs = document.querySelectorAll(`.${modal.classList[0]} input[type="text"]`);
 					const message = document.querySelector(`.${modal.classList[0]}__error-message`);
 					const inputMessages = document.querySelectorAll(`.${modal.classList[0]}__error-input`);
+					const captcha = document.querySelector(`.${modal.classList[0]} .captcha`);
+					
 					resetInputs(inputs, message, inputMessages);
+					
+					resetCaptcha(captcha.classList[0]);
+					captcha.nextElementSibling.textContent = '';
 
 					document.body.style.overflow = 'auto';
 					modal.classList.remove('modal--active');
 				};
+
+				const openModal = (modal) => {
+					document.body.style.overflow = 'hidden';
+					modal.classList.add('modal--active');
+
+					outsideClickModal(modal);
+					escEnterModal(modal);
+				};
+
+				// const closeModal = (modal) => {
+				// 	const inputs = document.querySelectorAll(`.${modal.classList[0]} input[type="text"]`);
+				// 	const message = document.querySelector(`.${modal.classList[0]}__error-message`);
+				// 	const inputMessages = document.querySelectorAll(`.${modal.classList[0]}__error-input`);
+				// 	resetInputs(inputs, message, inputMessages);
+
+				// 	document.body.style.overflow = 'auto';
+				// 	modal.classList.remove('modal--active');
+				// };
+
+				const contactBtns = document.querySelectorAll('.btn--contact');
+				const partnerBtns = document.querySelectorAll('.btn--partner');
+
+				const outsideClickModal = (modal) => {
+					modal.addEventListener('click', (e) => {
+						if (e.target.parentElement === modal) {
+							closeModal(modal);
+						}
+					});
+				};
+
+				const escEnterModal = (modal) => {
+					document.addEventListener('keyup', function (e) {
+						if (e.keyCode === 27) {
+							closeModal(modal);
+						}
+					});
+				};
+
+				contactBtns.forEach(contactBtn => {
+					contactBtn.addEventListener('click', () => {
+						openModal(contactModal);
+					});
+				});
+
+				partnerBtns.forEach(partnerBtn => {
+					partnerBtn.addEventListener('click', () => {
+						openModal(partnerModal);
+					});
+				});
+
+
+				const modalCloseBtns = document.querySelectorAll('.modal__close');
+
+				modalCloseBtns.forEach(modalCloseBtn => {
+					modalCloseBtn.addEventListener('click', () => {
+						const modal = modalCloseBtn.parentElement.parentElement.parentElement;
+						closeModal(modal);
+					});
+				});
+
 
 				const checkInput = (input) => {
 					// const fioReg = /^[a-zA-Zа-яА-ЯёЁ]*([-][a-zA-Zа-яА-ЯёЁ]*)?\s[a-zA-Zа-яА-ЯёЁ]*\s[a-zA-Zа-яА-ЯёЁ]*$/;
@@ -122,7 +254,7 @@
 					return { 'bool': bool, 'inputname': input.name };
 				};
 
-				const validateForm = (modalName, formName, btnName, messageName, alertName, inputMessageName, captchaMessageName) => {
+				const validateForm = (modalName, formName, btnName, messageName, alertName, inputMessageName, captchaMessageName, captchaName) => {
 					const inputs = document.querySelectorAll(`${modalName ? modalName : formName} input[type="text"]`);
 					const modal = modalName && document.querySelector(modalName);
 					const message = messageName && document.querySelector(messageName);
@@ -131,7 +263,7 @@
 					// const form = document.querySelector(modalName + ' form');
 					const form = document.querySelector(`${modalName ? modalName + ' form' : formName }`);
 					const captchaMessage = document.querySelector(captchaMessageName);
-					console.log(captchaMessage)
+					// console.log(captchaMessage)
 
 					let inputsIsValidate = [];
 
@@ -157,13 +289,13 @@
 								if (inputData.bool) {
 									if (!inputsIsValidate.includes(inputData.inputname)) {
 										inputsIsValidate = [...inputsIsValidate, checkInput(input).inputname];
-										console.log(inputsIsValidate);
+										// console.log(inputsIsValidate);
 									}
 								} else {
 									if (inputsIsValidate.includes(input.name)) {
 										const elemIndex = inputsIsValidate.findIndex(inputIsValidate => inputIsValidate === input.name);
 										inputsIsValidate = [...inputsIsValidate.slice(0, elemIndex), ...inputsIsValidate.slice(elemIndex + 1)];
-										console.log(inputsIsValidate);
+										// console.log(inputsIsValidate);
 									}
 								}
 
@@ -174,16 +306,13 @@
 						});
 					});
 
-					
-					let captcha;
-					
-					
-
+										
 					document.querySelector(btnName).addEventListener('click', (e) => {
 						e.preventDefault();
 
+						let captcha;
 						captcha = document.querySelector(`${modalName ? modalName + ' form' + ' .g-recaptcha-response' : formName + ' .g-recaptcha-response'}`);
-						console.log(captcha.value);
+						// console.log(captcha.value);
 
 						// let i = 0;
 
@@ -254,17 +383,21 @@
 								}
 							})
 
+							
+
 							inputsIsValidate = [];
+							// console.log('captchaName:' + captchaName)
+							resetCaptcha(captchaName);
 							formName && resetInputs(inputs, message, inputMessages);
 							modalName && closeModal(modal);
-							console.log(document.querySelector('.g-recaptcha'));
+							// modalName && open(captchaName);
 						}
 					});
 				}
 
-				validateForm('.contact-modal', '', '.contact-modal__btn', '.contact-modal__error-message', '.modal-message', '.contact-modal__error-input', '.contact-modal__recaptcha-error');
-				validateForm('.partner-modal', '', '.partner-modal__btn', '.partner-modal__error-message', '.modal-message', '.partner-modal__error-input', '.partner-modal__recaptcha-error');
-				validateForm('', '.feedback__form', '.feedback-form__btn', '.feedback-form__error-message', '.feedback__alert', '.feedback-form__error-input', '.feedback-form__recaptcha-error');
+				validateForm('.contact-modal', '', '.contact-modal__btn', '.contact-modal__error-message', '.modal-message', '.contact-modal__error-input', '.contact-modal__recaptcha-error', 'contact-modal__captcha');
+				validateForm('.partner-modal', '', '.partner-modal__btn', '.partner-modal__error-message', '.modal-message', '.partner-modal__error-input', '.partner-modal__recaptcha-error', 'partner-modal__captcha');
+				validateForm('', '.feedback__form', '.feedback-form__btn', '.feedback-form__error-message', '.feedback__alert', '.feedback-form__error-input', '.feedback-form__recaptcha-error', 'feedback__captcha');
 			};
 		</script>
 
