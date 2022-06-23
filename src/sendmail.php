@@ -28,7 +28,7 @@
 	$mail->setFrom('*************@***.by', $_POST["fio"]); // от кого
 	$mail->addAddress('info@aivp.io'); // кому
 
-	$mail->Subject = $_POST["addinfo"] ? "Стать партнёром" : "Свяжитесь с нами";
+	$mail->Subject = $_POST["formTitle"];
 
 	$body = "";
 	foreach ($_POST as $key => $value)
@@ -40,7 +40,7 @@
 			$body.='<div><b>Email:</b> '.$value.'</div>';
 		} else if($key == 'phone') {
 			$body.='<div><b>Телефон:</b> '.$value.'</div>';
-		} else if($key == 'addinfo') {
+		} else if($key == 'addinfo' && $value) {
 			$body.='<div><b>Дополнительная информация:</b> '.$value.'</div>';
 		}
 		

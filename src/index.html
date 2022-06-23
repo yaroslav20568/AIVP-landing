@@ -264,7 +264,8 @@
 					const form = document.querySelector(`${modalName ? modalName + ' form' : formName }`);
 					const captchaMessage = document.querySelector(captchaMessageName);
 					// console.log(captchaMessage)
-
+					const titleForm = document.querySelector(`${modalName ? modalName + ' h1' : '.feedback h3' }`).textContent;
+					// console.log(titleForm);
 					let inputsIsValidate = [];
 
 					
@@ -344,6 +345,7 @@
 
 						if (inputsIsValidate.length === inputs.length && captcha.value) {
 							let formData = new FormData(form);
+							formData.append('formTitle', titleForm);
 							fetch('sendmail.php', {
 								method: 'POST',
 								body: formData
