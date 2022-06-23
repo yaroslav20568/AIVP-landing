@@ -177,210 +177,223 @@ window.addEventListener('DOMContentLoaded', () => {
 	/* ANCHORS */
 
 	/* VALIDATION */
+	// const checkInput = (input) => {
+	// 	// const fioReg = /^[a-zA-Zа-яА-ЯёЁ]*([-][a-zA-Zа-яА-ЯёЁ]*)?\s[a-zA-Zа-яА-ЯёЁ]*\s[a-zA-Zа-яА-ЯёЁ]*$/;
+	// 	// const fioReg = /^[a-zA-Zа-яА-ЯёЁ ]+$/;
+	// 	// const companyReg = /^[a-zA-Zа-яА-ЯёЁ0-9 ]+$/;
+	// 	// const emailReg = /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i;
+	// 	// const phoneReg = /^(\+\d{1,4})(\d{2,4})(\d{3})(\d{2})(\d{2})$/;
+	// 	// const addinfoReg = /^[a-zA-Zа-яА-ЯёЁ0-9 ]+$/;
+	// 	let bool;
 
-	const checkInput = (input) => {
-		// const fioReg = /^[a-zA-Zа-яА-ЯёЁ]*([-][a-zA-Zа-яА-ЯёЁ]*)?\s[a-zA-Zа-яА-ЯёЁ]*\s[a-zA-Zа-яА-ЯёЁ]*$/;
-		// const fioReg = /^[a-zA-Zа-яА-ЯёЁ ]+$/;
-		// const companyReg = /^[a-zA-Zа-яА-ЯёЁ0-9 ]+$/;
-		// const emailReg = /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i;
-		// const phoneReg = /^(\+\d{1,4})(\d{2,4})(\d{3})(\d{2})(\d{2})$/;
-		// const addinfoReg = /^[a-zA-Zа-яА-ЯёЁ0-9 ]+$/;
-		let bool;
+	// 	// if (fioReg.test(input.value) && input.name === 'fio') {
+	// 	// 	if ((input.value.length >= 6 && input.value.length <= 30)) {
+	// 	// 		bool = true;
+	// 	// 		input.nextElementSibling.textContent = '';
+	// 	// 		input.nextElementSibling.style.display = 'none';
+	// 	// 	} else {
+	// 	// 		input.nextElementSibling.textContent = 'Ввод от 6 до 30 символов';
+	// 	// 		input.nextElementSibling.style.display = 'block';
+	// 	// 	}
+	// 	// } else if (companyReg.test(input.value) && input.name === 'company') {
+	// 	// 	if ((input.value.length >= 4 && input.value.length <= 20)) {
+	// 	// 		bool = true;
+	// 	// 		input.nextElementSibling.textContent = '';
+	// 	// 		input.nextElementSibling.style.display = 'none';
+	// 	// 	} else {
+	// 	// 		input.nextElementSibling.textContent = 'Ввод от 4 до 20 символов';
+	// 	// 		input.nextElementSibling.style.display = 'block';
+	// 	// 	}
+	// 	// } else if (emailReg.test(input.value) && input.name === 'email') {
+	// 	// 	bool = true;
+	// 	// 	input.nextElementSibling.textContent = '';
+	// 	// 	input.nextElementSibling.style.display = 'none';
+	// 	// } else if (phoneReg.test(input.value) && input.name === 'phone') {
+	// 	// 	bool = true;
+	// 	// 	input.nextElementSibling.textContent = '';
+	// 	// 	input.nextElementSibling.style.display = 'none';
+	// 	// } else if (addinfoReg.test(input.value) && input.name === 'addinfo') {
+	// 	// 	if ((input.value.length >= 4 && input.value.length <= 30)) {
+	// 	// 		bool = true;
+	// 	// 		input.nextElementSibling.textContent = '';
+	// 	// 		input.nextElementSibling.style.display = 'none';
+	// 	// 	} else {
+	// 	// 		input.nextElementSibling.textContent = 'Ввод от 4 до 30 символов';
+	// 	// 		input.nextElementSibling.style.display = 'block';
+	// 	// 	}
+	// 	// } else {
+	// 	// 	bool = false;
+	// 	// 	input.nextElementSibling.textContent = 'Некоректный ввод';
+	// 	// 	input.nextElementSibling.style.display = 'block';
 
-		// if (fioReg.test(input.value) && input.name === 'fio') {
-		// 	if ((input.value.length >= 6 && input.value.length <= 30)) {
-		// 		bool = true;
-		// 		input.nextElementSibling.textContent = '';
-		// 		input.nextElementSibling.style.display = 'none';
-		// 	} else {
-		// 		input.nextElementSibling.textContent = 'Ввод от 6 до 30 символов';
-		// 		input.nextElementSibling.style.display = 'block';
-		// 	}
-		// } else if (companyReg.test(input.value) && input.name === 'company') {
-		// 	if ((input.value.length >= 4 && input.value.length <= 20)) {
-		// 		bool = true;
-		// 		input.nextElementSibling.textContent = '';
-		// 		input.nextElementSibling.style.display = 'none';
-		// 	} else {
-		// 		input.nextElementSibling.textContent = 'Ввод от 4 до 20 символов';
-		// 		input.nextElementSibling.style.display = 'block';
-		// 	}
-		// } else if (emailReg.test(input.value) && input.name === 'email') {
-		// 	bool = true;
-		// 	input.nextElementSibling.textContent = '';
-		// 	input.nextElementSibling.style.display = 'none';
-		// } else if (phoneReg.test(input.value) && input.name === 'phone') {
-		// 	bool = true;
-		// 	input.nextElementSibling.textContent = '';
-		// 	input.nextElementSibling.style.display = 'none';
-		// } else if (addinfoReg.test(input.value) && input.name === 'addinfo') {
-		// 	if ((input.value.length >= 4 && input.value.length <= 30)) {
-		// 		bool = true;
-		// 		input.nextElementSibling.textContent = '';
-		// 		input.nextElementSibling.style.display = 'none';
-		// 	} else {
-		// 		input.nextElementSibling.textContent = 'Ввод от 4 до 30 символов';
-		// 		input.nextElementSibling.style.display = 'block';
-		// 	}
-		// } else {
-		// 	bool = false;
-		// 	input.nextElementSibling.textContent = 'Некоректный ввод';
-		// 	input.nextElementSibling.style.display = 'block';
+	// 	// 	if (input.name === 'fio') {
+	// 	// 		input.nextElementSibling.textContent = 'Формат: Щука Игорь Юрьевич';
+	// 	// 	} else if (input.name === 'company') {
+	// 	// 		input.nextElementSibling.textContent = 'Формат: Интексофт';
+	// 	// 	} else if (input.name === 'email') {
+	// 	// 		input.nextElementSibling.textContent = 'Формат: ravlushevich.iarek@mail.ru';
+	// 	// 	} else if (input.name === 'phone') {
+	// 	// 		input.nextElementSibling.textContent = 'Формат: +375299865881';
+	// 	// 	} else if (input.name === 'addinfo') {
+	// 	// 		input.nextElementSibling.textContent = 'Формат: Компания существует 7 лет';
+	// 	// 	}
+	// 	// }
 
-		// 	if (input.name === 'fio') {
-		// 		input.nextElementSibling.textContent = 'Формат: Щука Игорь Юрьевич';
-		// 	} else if (input.name === 'company') {
-		// 		input.nextElementSibling.textContent = 'Формат: Интексофт';
-		// 	} else if (input.name === 'email') {
-		// 		input.nextElementSibling.textContent = 'Формат: ravlushevich.iarek@mail.ru';
-		// 	} else if (input.name === 'phone') {
-		// 		input.nextElementSibling.textContent = 'Формат: +375299865881';
-		// 	} else if (input.name === 'addinfo') {
-		// 		input.nextElementSibling.textContent = 'Формат: Компания существует 7 лет';
-		// 	}
-		// }
-
-		if(input.value === 0 && input.name !== 'addinfo') {
-			bool = false;
-		} else if(input.name === 'addinfo') {
-			bool = true;
-		} else {
-			bool = true;
-		}
-
-		return { 'bool': bool, 'inputname': input.name };
-	};
-
-	const validateForm = (modalName, formName, btnName, messageName, alertName, inputMessageName) => {
-		const inputs = document.querySelectorAll(`${modalName ? modalName : formName} input[type="text"]`);
-		const modal = modalName && document.querySelector(modalName);
-		const message = messageName && document.querySelector(messageName);
-		const alert = alertName && document.querySelector(alertName);
-		const inputMessages = inputMessageName && document.querySelectorAll(inputMessageName);
-		const form = document.querySelector(modalName + ' form');
-
-		let inputsIsValidate = [];
-		// 6LfoWY8gAAAAAE1cIEOj7Y3GnJqWGIT4TpuG-Hbu
-		// let v = grecaptcha.getResponse();
-		// window.alert(v);
-		// console.log(document.querySelector('.g-recaptcha-response').value);
 		
 
-		inputs.forEach(input => {
-			input.addEventListener('input', () => {
-				let captchResponse = document.getElementById('g-recaptcha-response')
-				console.log(captchResponse.value);
-				
-				if (!input.value && input.name !== 'addinfo' || captchResponse.value == '') {
-					if (!input.placeholder.includes('*') && input.name !== 'addinfo') {
-						input.placeholder = input.placeholder + '*';
+	// 	if(input.value === 0 && input.name !== 'addinfo') {
+	// 		bool = false;
+	// 	} else {
+	// 		bool = true;
+	// 	}
 
-						if (inputsIsValidate.includes(input.name)) {
-							const elemIndex = inputsIsValidate.findIndex(inputIsValidate => inputIsValidate === input.name);
-							inputsIsValidate = [...inputsIsValidate.slice(0, elemIndex), ...inputsIsValidate.slice(elemIndex + 1)];
-						}
-					}
+	// 	return { 'bool': bool, 'inputname': input.name };
+	// };
 
-					message.textContent = 'Все поля со звездочкой “*” должны быть заполнены';
-					message.style.display = 'block';
-				} else {
-					input.placeholder = input.placeholder.replace('*', '');
-					const inputData = checkInput(input);
-					if (inputData.bool) {
-						if (!inputsIsValidate.includes(inputData.inputname)) {
-							inputsIsValidate = [...inputsIsValidate, checkInput(input).inputname];
-							console.log(inputsIsValidate);
-						}
-					} else {
-						if (inputsIsValidate.includes(input.name)) {
-							const elemIndex = inputsIsValidate.findIndex(inputIsValidate => inputIsValidate === input.name);
-							inputsIsValidate = [...inputsIsValidate.slice(0, elemIndex), ...inputsIsValidate.slice(elemIndex + 1)];
-							console.log(inputsIsValidate);
-						}
-					}
+	// const validateForm = (modalName, formName, btnName, messageName, alertName, inputMessageName, captchaMessageName) => {
+	// 	const inputs = document.querySelectorAll(`${modalName ? modalName : formName} input[type="text"]`);
+	// 	const modal = modalName && document.querySelector(modalName);
+	// 	const message = messageName && document.querySelector(messageName);
+	// 	const alert = alertName && document.querySelector(alertName);
+	// 	const inputMessages = inputMessageName && document.querySelectorAll(inputMessageName);
+	// 	// const form = document.querySelector(modalName + ' form');
+	// 	const form = document.querySelector(`${modalName ? modalName + ' form' : formName }`);
+	// 	const captchaMessage = document.querySelector(captchaMessageName);
+	// 	console.log(captchaMessage)
 
-					if (inputsIsValidate.length === inputs.length) {
-						message.textContent = '';
-					}
-				}
-			});
-		});
+	// 	let inputsIsValidate = [];
 
-		document.querySelector(btnName).addEventListener('click', (e) => {
-			e.preventDefault();
-
-			let captchResponse = document.getElementById('g-recaptcha-response')
-			console.log(captchResponse.value);
-
-			// let i = 0;
-
-			inputs.forEach(input => {
-				if (input.name === 'addinfo' && !inputsIsValidate.includes(input.name)) {
-					inputsIsValidate = [...inputsIsValidate, input.name];
-				}
-				if (!input.value || captchResponse.value == '') {
-					if (!input.placeholder.includes('*') && input.name !== 'addinfo') {
-						input.placeholder = input.placeholder + '*';
-					}
-
-					message.textContent = 'Все поля со звездочкой “*” должны быть заполнены';
-					message.style.display = 'block';
-				} else {
-					// ++i;
-				}
-			});
-
-			if (inputsIsValidate.length === inputs.length && captchResponse.value !== '') {
-				inputsIsValidate = [];
-				formName && resetInputs(inputs, message, inputMessages);
-				modalName && closeModal(modal);
-
-				let formData = new FormData(form);
-				fetch('sendmail.php', {
-					method: 'POST',
-					body: formData
-				})
-				.then(() => {
-					if(alertName === '.modal-message') {
-						// document.body.style.overflow = 'hidden';
-
-						setTimeout(() => {
-							alert.style.display = 'block';
-
-							document.querySelector('.modal-message__btn').addEventListener('click', () => {
-								setTimeout(() => {
-									// document.body.style.overflow = 'auto';
-									alert.style.display = 'none';
-								}, 200);
-							});
-						}, 200);
-					} else {
-						setTimeout(() => {
-							alert.style.display = 'block';
 		
-							formName && window.scrollTo({
-								top: Number(document.querySelector(alertName).getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
-								behavior: "smooth"
-							});
-		
-							setTimeout(() => {
-								alert.style.display = 'none';
-		
-								formName && window.scrollTo({
-									top: Number(document.querySelector(formName).parentElement.parentElement.getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
-									behavior: "smooth"
-								});
-							}, 2000);
-						}, 200);
-					}
-				})
-			}
-		});
-	};
 
-	validateForm('.contact-modal', '', '.contact-modal__btn', '.contact-modal__error-message', '.modal-message', '.contact-modal__error-input');
-	validateForm('.partner-modal', '', '.partner-modal__btn', '.partner-modal__error-message', '.modal-message', '.partner-modal__error-input');
-	validateForm('', '.feedback__form', '.feedback-form__btn', '.feedback-form__error-message', '.feedback__alert', '.feedback-form__error-input');
+	// 	inputs.forEach(input => {
+	// 		input.addEventListener('input', () => {
+	// 			if (!input.value && input.name !== 'addinfo') {
+	// 				if (!input.placeholder.includes('*') && input.name !== 'addinfo') {
+	// 					input.placeholder = input.placeholder + '*';
+
+	// 					if (inputsIsValidate.includes(input.name)) {
+	// 						const elemIndex = inputsIsValidate.findIndex(inputIsValidate => inputIsValidate === input.name);
+	// 						inputsIsValidate = [...inputsIsValidate.slice(0, elemIndex), ...inputsIsValidate.slice(elemIndex + 1)];
+	// 					}
+	// 				}
+
+	// 				message.textContent = 'Все поля со звездочкой “*” должны быть заполнены';
+	// 				message.style.display = 'block';
+	// 			} else {
+	// 				input.placeholder = input.placeholder.replace('*', '');
+	// 				const inputData = checkInput(input);
+	// 				if (inputData.bool) {
+	// 					if (!inputsIsValidate.includes(inputData.inputname)) {
+	// 						inputsIsValidate = [...inputsIsValidate, checkInput(input).inputname];
+	// 						console.log(inputsIsValidate);
+	// 					}
+	// 				} else {
+	// 					if (inputsIsValidate.includes(input.name)) {
+	// 						const elemIndex = inputsIsValidate.findIndex(inputIsValidate => inputIsValidate === input.name);
+	// 						inputsIsValidate = [...inputsIsValidate.slice(0, elemIndex), ...inputsIsValidate.slice(elemIndex + 1)];
+	// 						console.log(inputsIsValidate);
+	// 					}
+	// 				}
+
+	// 				if (inputsIsValidate.length === inputs.length) {
+	// 					message.textContent = '';
+	// 				}
+	// 			}
+	// 		});
+	// 	});
+
+		
+	// 	let captcha;
+		
+		
+
+	// 	document.querySelector(btnName).addEventListener('click', (e) => {
+	// 		e.preventDefault();
+
+	// 		captcha = document.querySelector(`${modalName ? modalName + ' form' + ' .g-recaptcha-response' : formName + ' .g-recaptcha-response'}`);
+	// 		console.log(captcha.value);
+
+	// 		// let i = 0;
+
+	// 		inputs.forEach(input => {
+	// 			if (input.name === 'addinfo' && !inputsIsValidate.includes(input.name)) {
+	// 				inputsIsValidate = [...inputsIsValidate, input.name];
+	// 			}
+	// 			if (!input.value && input.name !== 'addinfo') {
+	// 				if (!input.placeholder.includes('*') && input.name !== 'addinfo') {
+	// 					input.placeholder = input.placeholder + '*';
+	// 				}
+
+	// 				message.textContent = 'Все поля со звездочкой “*” должны быть заполнены';
+	// 				message.style.display = 'block';
+	// 			} else {
+	// 				// ++i;
+	// 			}
+	// 		});
+			
+	// 		// captcha = document.querySelector(`${modalName ? modalName + ' form' + ' .g-recaptcha-response' : formName + ' .g-recaptcha-response'}`);
+	// 		// console.log(captcha.value);
+
+
+	// 		if(!captcha.value) {
+	// 			captchaMessage.textContent = 'Докажите что вы не робот';
+	// 		} else {
+	// 			captchaMessage.textContent = '';
+	// 		}
+
+	// 		if (inputsIsValidate.length === inputs.length && captcha.value) {
+	// 			let formData = new FormData(form);
+	// 			fetch('sendmail.php', {
+	// 				method: 'POST',
+	// 				body: formData
+	// 			})
+	// 			.then(() => {
+	// 				if(alertName === '.modal-message') {
+	// 					// document.body.style.overflow = 'hidden';
+
+	// 					setTimeout(() => {
+	// 						alert.style.display = 'block';
+
+	// 						document.querySelector('.modal-message__btn').addEventListener('click', () => {
+	// 							setTimeout(() => {
+	// 								// document.body.style.overflow = 'auto';
+	// 								alert.style.display = 'none';
+	// 							}, 200);
+	// 						});
+	// 					}, 200);
+	// 				} else {
+	// 					setTimeout(() => {
+	// 						alert.style.display = 'block';
+		
+	// 						formName && window.scrollTo({
+	// 							top: Number(document.querySelector(alertName).getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
+	// 							behavior: "smooth"
+	// 						});
+		
+	// 						setTimeout(() => {
+	// 							alert.style.display = 'none';
+		
+	// 							formName && window.scrollTo({
+	// 								top: Number(document.querySelector(formName).parentElement.parentElement.getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight),
+	// 								behavior: "smooth"
+	// 							});
+	// 						}, 2000);
+	// 					}, 200);
+	// 				}
+	// 			})
+
+	// 			inputsIsValidate = [];
+	// 			formName && resetInputs(inputs, message, inputMessages);
+	// 			modalName && closeModal(modal);
+	// 			console.log(document.querySelector('.g-recaptcha'));
+	// 		}
+	// 	});
+	// }
+
+	// validateForm('.contact-modal', '', '.contact-modal__btn', '.contact-modal__error-message', '.modal-message', '.contact-modal__error-input', '.contact-modal__recaptcha-error');
+	// validateForm('.partner-modal', '', '.partner-modal__btn', '.partner-modal__error-message', '.modal-message', '.partner-modal__error-input', '.partner-modal__recaptcha-error');
+	// validateForm('', '.feedback__form', '.feedback-form__btn', '.feedback-form__error-message', '.feedback__alert', '.feedback-form__error-input', '.feedback-form__recaptcha-error');
+
 	/* VALIDATION */
 
 	/* ANIMATIONS */

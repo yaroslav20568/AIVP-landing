@@ -1077,7 +1077,7 @@ body {
 			display: none;
 		}
 
-		&__error-input, &__error-message {
+		&__error-input, &__error-message, &__recaptcha-error {
 			font-size: 22.4px;
 			line-height: 1.383;
 			color: #BFBFBF;
@@ -1085,6 +1085,10 @@ body {
 
 		&__error-message {
 			text-align: center;
+			margin-top: 16px;
+		}
+
+		&__recaptcha-error {
 			margin-top: 16px;
 		}
 
@@ -1248,12 +1252,12 @@ body {
 		line-height: 1.357;
 	}
 
-	&__error-message {
+	&__error-message, &__recaptcha-error {
 		font-size: 14px;
 		line-height: 19px;
 		color: $grey_light;
 		margin-top: 16px;
-		display: none;
+		// display: none;
 	}
 
 	&__alert {

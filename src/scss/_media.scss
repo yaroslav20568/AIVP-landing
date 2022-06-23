@@ -425,7 +425,7 @@
 
 	.feedback {
 		&-form {
-			&__input, &__error-input, &__error-message {
+			&__input, &__error-input, &__error-message, &__recaptcha-error {
 				font-size: 14px;
 				line-height: 1.357;
 			}
