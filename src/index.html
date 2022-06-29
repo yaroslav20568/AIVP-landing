@@ -11,6 +11,7 @@
 
 		@@include('html/modals.html')
 
+	
 		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 		<script src="https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render=explicit" async defer></script>
@@ -400,18 +401,53 @@
 				validateForm('.contact-modal', '', '.contact-modal__btn', '.contact-modal__error-message', '.modal-message', '.contact-modal__error-input', '.contact-modal__recaptcha-error', 'contact-modal__captcha');
 				validateForm('.partner-modal', '', '.partner-modal__btn', '.partner-modal__error-message', '.modal-message', '.partner-modal__error-input', '.partner-modal__recaptcha-error', 'partner-modal__captcha');
 				validateForm('', '.feedback__form', '.feedback-form__btn', '.feedback-form__error-message', '.feedback__alert', '.feedback-form__error-input', '.feedback-form__recaptcha-error', 'feedback__captcha');
+			
+				// console.log(window.location.hash === '#contact-modal');
+				// if(window.location.hash === '#contact-modal') {
+				// 	openModal(document.querySelector('.contact-modal'));
+				// } else if(window.location.hash === '#partner-modal') {
+				// 	openModal(document.querySelector('.partner-modal'));
+				// }
+			
+				window.addEventListener('load', () => {
+					const headerStyle = window.getComputedStyle(document.querySelector('.header'));
+					const headerHeight = headerStyle.height.replace('px', '');
+
+					if(window.location.hash === '#contact-modal') {
+						const scrollToPosition = document.querySelector('.intro').getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight;;
+
+						window.scrollTo({
+							top: scrollToPosition,
+							behavior: "smooth"
+						});
+						console.log(scrollToPosition)
+						console.log('#contact-modal');
+						openModal(document.querySelector('.contact-modal'));
+					} else if(window.location.hash === '#partner-modal') {
+						const scrollToPosition = document.querySelector('.cooperation').getBoundingClientRect().top + document.documentElement.scrollTop - headerHeight;
+
+						window.scrollTo({
+							top: scrollToPosition,
+							behavior: "smooth"
+						});
+						console.log(scrollToPosition)
+						console.log('#partner-modal');
+						openModal(document.querySelector('.partner-modal'));
+					}
+				});
 			};
 		</script>
 
 		<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
 			async defer>
 		</script>
-		
+
 		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
 		<script src="https://www.micelistudios.com/js/utils/SplitText.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="js/app.min.js"></script>
+
 	</body>
 </html>
